@@ -1,5 +1,6 @@
 import React from 'react';
 import {Nav, Navbar, NavDropdown} from "react-bootstrap";
+import './styles/NavBar.css'
 
 const NavBar = () => (
     <Navbar collapseOnSelect expand="lg" bg="light">
