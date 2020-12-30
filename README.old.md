@@ -3,8 +3,8 @@ Desarrollo de una primer tienda online con el fin de adquirir conocimiento en va
 
 Recuerde, comenzamos con la instalación de la siguiente manera:
 create-react-app first-online-shop
-npm install react-bootstrap to use bootstrap
+npm install react-bootstrap <!-- to use bootstrap
 npm install react-router-dom
-npm install node-sass to use files scss
+npm install node-sass <!-- to use files scss. npm install node-sass@4.14.1 this versión is more compatible -->
 npm i redux react-redux
 npm i @material-ui/core @metarial-ui/icons

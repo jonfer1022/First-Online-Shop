@@ -4,11 +4,15 @@ import React, { Fragment } from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import NavBar from './NavBar';
 import { Layout } from './Layout';
+import './styles/Header.scss'
 
 function App() {
   return (
     <Fragment>
-      <NavBar></NavBar>
+      <header>
+        <NavBar></NavBar>
+        <div class="intro">hola</div>
+      </header>
       <Layout>
         <BrowserRouter>
           <Switch>
