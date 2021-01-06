@@ -1,0 +1,35 @@
+.section-title {
+	background: #444  center center no-repeat fixed;
+	background-size: cover;
+}
+
+.section-title h2 {
+	color: #fff;
+	margin: 0 0 20px 0;
+}
+
+.section-title .overlay {
+	padding: 5% 0;
+	background: rgba(0, 0, 0, 0.7);
+}
+
+.section-title p {
+	font-size: 22px;
+	color: rgba(255,255,255,0.8);
+}
+
+.section-title hr {
+	margin: 0 auto;
+	margin-bottom: 40px;
+}
+
+hr {
+	height: 4px;
+	width: 100px;
+	text-align: center;
+	position: relative;
+	background: #8eb640;
+	margin: 0;
+	margin-bottom: 40px;
+	border: 0;
+}

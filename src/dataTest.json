@@ -1,0 +1,44 @@
+{
+    "dataPortafolio": [
+        {
+            "id":1,
+            "producto":"Chaquetas",
+            "imgRopa":"/static/media/01-small.791a1444.jpg"
+        },
+        {
+            "id":2,
+            "producto":"Buzos",
+            "imgRopa":"/static/media/01-small.791a1444.jpg"
+        },
+        {
+            "id":3,
+            "producto":"Camisas",
+            "imgRopa":"/static/media/01-small.791a1444.jpg"
+        },
+        {
+            "id":4,
+            "producto":"Vestidos",
+            "imgRopa":"/static/media/01-small.791a1444.jpg"
+        },
+        {
+            "id":5,
+            "producto":"Pantalones",
+            "imgRopa":"/static/media/01-small.791a1444.jpg"
+        },
+        {
+            "id":6,
+            "producto":"Zapatos",
+            "imgRopa":"/static/media/01-small.791a1444.jpg"
+        },
+        {
+            "id":7,
+            "producto":"Interiores",
+            "imgRopa":"/static/media/01-small.791a1444.jpg"
+        },
+        {
+            "id":8,
+            "producto":"Deportivo",
+            "imgRopa":"/static/media/01-small.791a1444.jpg"
+        }
+    ]
+}
