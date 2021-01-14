@@ -5,6 +5,7 @@ import Portafolio from './Portafolio';
 import SectionTitle from './SectionTitle';
 import Contact from './Contact';
 import Footer from './Footer';
+import Slider from './Slider'
 import { Header } from './Header';
 import { Layout } from './Layout';
 
@@ -15,6 +16,8 @@ function App() {
         <NavBar/>
         <Header/>
       </header>
+      <br/>
+      <Slider />
       <br/>
       <SectionTitle 
         title="¡LO ÚLTIMO!" 

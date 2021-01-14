@@ -1,5 +1,4 @@
 import React, {Fragment} from 'react';
-import { Image } from 'react-bootstrap';
 import './styles/Footer.scss';
 
 const Contact = (props) => {
