@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import { Card, Image } from 'react-bootstrap';
 import './styles/CardClothes.scss';
 // import RopaImg from '../img/img-portafolio/01-small.jpg';
+// import RopaImg from '../img/bg_image.jpg';
 
 const CardClothes = (data) =>{
 

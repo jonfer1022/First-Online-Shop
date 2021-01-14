@@ -39,6 +39,11 @@
             "id":8,
             "producto":"Deportivo",
             "imgRopa":"/static/media/01-small.791a1444.jpg"
+        },
+        {
+            "id":9,
+            "producto":"Disfraces",
+            "imgRopa":"/static/media/01-small.791a1444.jpg"
         }
     ]
 }
