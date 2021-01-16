@@ -1,0 +1,47 @@
+.card{
+    margin-left: 2%;
+    margin-right: 1%;
+    margin-top: 1%;
+    width: 30%;
+    border: none !important;
+    transition: all 1000ms ease-in-out; // Safari and Chrome
+    &:hover .div-footer{
+        display: block;
+        height: 100%;
+    }
+}
+
+.img-responsive{
+    max-width: 100%;
+    transform:scale(1);
+    -webkit-transform:scale(1); // Safari and Chrome
+    transition: all 250ms ease-in-out; // Safari and Chrome
+    &:hover{
+        transform:scale(0.95);
+        -ms-transform:scale(0.95); // IE 9 
+        -moz-transform:scale(0.95); // Firefox 
+        -webkit-transform:scale(0.95); // Safari and Chrome 
+        -o-transform:scale(0.95); // Opera
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+    }
+}
+
+.card-footer{
+    padding: 0%;
+}
+
+.div-footer{
+    display: none;
+    height: 0%;
+    text-align: center;
+    transition: all 5000ms ease-in-out; // Safari and Chrome
+}
+
+// .card-info{
+//     height: 0%;
+//     overflow: hidden;
+//     padding: 0% !important;
+//     color: lawngreen;
+// }
