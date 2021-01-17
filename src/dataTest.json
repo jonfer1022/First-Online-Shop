@@ -1,49 +1,50 @@
 {
     "dataPortafolio": [
         {
-            "id":1,
-            "producto":"Chaquetas",
-            "imgRopa":"/static/media/01-small.791a1444.jpg"
+            "id": 1,
+            "producto": "Chaquetas",
+            "src": "https://raw.githubusercontent.com/jonfer1022/First-Online-Shop/main/src/img/bg_image.jpg"
         },
         {
             "id":2,
             "producto":"Buzos",
-            "imgRopa":"/static/media/01-small.791a1444.jpg"
+            "src": "https://raw.githubusercontent.com/jonfer1022/First-Online-Shop/main/src/img/bg_image.jpg"
         },
         {
             "id":3,
             "producto":"Camisas",
-            "imgRopa":"/static/media/01-small.791a1444.jpg"
+            "src": "https://raw.githubusercontent.com/jonfer1022/First-Online-Shop/main/src/img/bg_image.jpg"
         },
         {
             "id":4,
             "producto":"Vestidos",
-            "imgRopa":"/static/media/01-small.791a1444.jpg"
+            "src": "https://raw.githubusercontent.com/jonfer1022/First-Online-Shop/main/src/img/bg_image.jpg"
         },
         {
             "id":5,
             "producto":"Pantalones",
-            "imgRopa":"/static/media/01-small.791a1444.jpg"
+            "src": "https://raw.githubusercontent.com/jonfer1022/First-Online-Shop/main/src/img/bg_image.jpg"
         },
         {
             "id":6,
             "producto":"Zapatos",
-            "imgRopa":"/static/media/01-small.791a1444.jpg"
+            "src": "https://raw.githubusercontent.com/jonfer1022/First-Online-Shop/main/src/img/bg_image.jpg"
         },
         {
             "id":7,
             "producto":"Interiores",
-            "imgRopa":"/static/media/01-small.791a1444.jpg"
+            "src": "https://raw.githubusercontent.com/jonfer1022/First-Online-Shop/main/src/img/bg_image.jpg"
         },
         {
             "id":8,
             "producto":"Deportivo",
-            "imgRopa":"/static/media/01-small.791a1444.jpg"
+            "src": "https://raw.githubusercontent.com/jonfer1022/First-Online-Shop/main/src/img/bg_image.jpg"
         },
         {
             "id":9,
             "producto":"Disfraces",
-            "imgRopa":"/static/media/01-small.791a1444.jpg"
+            "src": "https://raw.githubusercontent.com/jonfer1022/First-Online-Shop/main/src/img/bg_image.jpg"
         }
     ]
 }
+

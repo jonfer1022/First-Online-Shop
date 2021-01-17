@@ -8,8 +8,11 @@ import Footer from './Footer';
 import Slider from './Slider'
 import { Header } from './Header';
 import { Layout } from './Layout';
+import imagen from '../img/img-portafolio/01-small.jpg';
+import { dataSlider } from '../dataSlider.json';
 
 function App() {
+  
   return (
     <Fragment>
       <header>
@@ -17,19 +20,19 @@ function App() {
         <Header/>
       </header>
       <br/>
-      <Slider />
+      <Slider categories={dataSlider}/>
       <br/>
       <SectionTitle 
         title="¡LO ÚLTIMO!" 
         parrafo="Descubre nuestra última colección." 
-        img="/static/media/bg_image.36d76ca7.jpg"
+        img={imagen}//"/static/media/bg_image.36d76ca7.jpg"
       />
       <Portafolio />
       <br/>
       <SectionTitle 
         title="¡Descuentos!" 
         parrafo="Últimos productos a muy buen precio."
-        img="/static/media/bg_image.36d76ca7.jpg"
+        img={imagen}//"/static/media/bg_image.36d76ca7.jpg"
       />
       <div>--</div>
       <Contact />
