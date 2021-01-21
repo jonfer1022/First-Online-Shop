@@ -5,11 +5,13 @@ import Portafolio from './Portafolio';
 import SectionTitle from './SectionTitle';
 import Contact from './Contact';
 import Footer from './Footer';
-import Slider from './Slider'
+import Slider from './Slider';
+import SliderMult from './SliderMult';
 import { Header } from './Header';
 import { Layout } from './Layout';
 import imagen from '../img/img-portafolio/01-small.jpg';
 import { dataSlider } from '../dataSlider.json';
+import { dataSliderMult } from '../dataSliderMult.json';
 
 function App() {
   
@@ -25,16 +27,17 @@ function App() {
       <SectionTitle 
         title="¡LO ÚLTIMO!" 
         parrafo="Descubre nuestra última colección." 
-        img={imagen}//"/static/media/bg_image.36d76ca7.jpg"
+        img={"https://raw.githubusercontent.com/jonfer1022/First-Online-Shop/main/src/img/img_subtitles.jpg"||imagen}
       />
       <Portafolio />
       <br/>
       <SectionTitle 
         title="¡Descuentos!" 
         parrafo="Últimos productos a muy buen precio."
-        img={imagen}//"/static/media/bg_image.36d76ca7.jpg"
+        img={"https://raw.githubusercontent.com/jonfer1022/First-Online-Shop/main/src/img/img_subtitles.jpg"||imagen}
       />
-      <div>--</div>
+      <br/>
+      <SliderMult discounts={dataSliderMult}/>
       <Contact />
       <Footer />
       <Layout>

@@ -8,33 +8,5 @@ npm install react-router-dom
 npm install node-sass <!-- to use files scss. npm install node-sass@4.14.1 this versión is more compatible -->
 npm i redux react-redux
 npm i @material-ui/core @metarial-ui/icons
-
-<!-- 
-,
-        {
-            "id":5,
-            "producto":"Pantalones",
-            "src": "https://raw.githubusercontent.com/jonfer1022/First-Online-Shop/main/src/img/bg_image.jpg"
-        },
-        {
-            "id":6,
-            "producto":"Zapatos",
-            "src": "https://raw.githubusercontent.com/jonfer1022/First-Online-Shop/main/src/img/bg_image.jpg"
-        },
-        {
-            "id":7,
-            "producto":"Interiores",
-            "src": "https://raw.githubusercontent.com/jonfer1022/First-Online-Shop/main/src/img/bg_image.jpg"
-        },
-        {
-            "id":8,
-            "producto":"Deportivo",
-            "src": "https://raw.githubusercontent.com/jonfer1022/First-Online-Shop/main/src/img/bg_image.jpg"
-        },
-        {
-            "id":9,
-            "producto":"Disfraces",
-            "src": "https://raw.githubusercontent.com/jonfer1022/First-Online-Shop/main/src/img/bg_image.jpg"
-        }
-
- -->
+npm install --save react-elastic-carousel <!-- It's necesary to use carousel -->
+npm install --save styled-components <!-- It's necesary to use react elastic carousel for styling -->
