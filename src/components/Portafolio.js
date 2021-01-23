@@ -7,7 +7,7 @@ const Portafolio = () => {
   return(
     <Fragment>
       {/* <h1 className="text-center">Categorias</h1> */}
-      <div className="container">
+      <div id="theLast" className="container">
         <div className="row mt-2">
 					<CardClothes clothes={dataPortafolio}/>
         </div>

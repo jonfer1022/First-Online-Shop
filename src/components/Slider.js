@@ -3,8 +3,10 @@ import { Carousel } from 'react-bootstrap';
 import './styles/Slider.scss';
 
 const Slider = (props) => {
+  
   return(
     <Fragment>
+    <div id={props.id}>
       <div style={{textAlign: "center"}}>
         <h2>CATEGORIAS</h2>
         <h5>Encontrarás prendas de tendecia en la categoria que prefieras</h5>
@@ -24,6 +26,7 @@ const Slider = (props) => {
           </Carousel.Item>
         ))}
       </Carousel>
+    </div>
     </Fragment>
   )
 }

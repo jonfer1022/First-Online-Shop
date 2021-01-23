@@ -1,8 +1,12 @@
 import React from 'react';
 import {Nav, Navbar, NavDropdown} from "react-bootstrap";
+import Scroll from 'react-scroll';
 import './styles/NavBar.scss'
+// import {Link} from "react-scroll";
 
 const NavBar = () => {
+
+  var scroll = Scroll.animateScroll;
 
   window.addEventListener("scroll", function(event) {
     if (this.scrollY > 150) {
@@ -14,14 +18,22 @@ const NavBar = () => {
     }
   },false);
 
+  const handleSearchPosition = function(elemento, cantidad){
+    let element = document.getElementById(elemento);
+    scroll.scrollTo(element.offsetTop - cantidad);
+  }
+
+  // <Link to="categories" smooth={true}><h6>Categorias</h6></Link>
+
   return(
   <div id="nav-bar">
-    <Navbar id="navbar-main"collapseOnSelect className="nav-bar-main" expand="lg">
-      <Navbar.Brand href="/home"><h5>Online-Shop</h5></Navbar.Brand>
+    <Navbar id="navbar-main" collapseOnSelect className="nav-bar-main" expand="lg">
+      <Navbar.Brand href="#" onClick={() => handleSearchPosition("header",0)}><h5>Samplhes</h5></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
-                <Nav.Link href="/categorias"><h6>Categorias</h6></Nav.Link>
+                <Nav.Link onClick={() => handleSearchPosition("categories",80)}><h6>Categorias</h6></Nav.Link>
+                <Nav.Link onClick={() => handleSearchPosition("discounts",400)}><h6>Descuentos</h6></Nav.Link>
                 <NavDropdown title="Productos" id="collasible-nav-dropdown">
                     <NavDropdown className="text-center" drop={'right'} title="Para Hombres">
                         <NavDropdown.Item href="#action/3.4">Chaquetas</NavDropdown.Item>
@@ -34,11 +46,10 @@ const NavBar = () => {
                         <NavDropdown.Item href="#action/3.9">Zapatos</NavDropdown.Item>
                     </NavDropdown>
                 </NavDropdown>
-                <Nav.Link href="#pricing"><h6>Descuentos</h6></Nav.Link>
                 </Nav>
             <Nav>
-                <Nav.Link href="#deets"><h6>Contactanos</h6></Nav.Link>
-                <Nav.Link eventKey={2} href="#memes">
+                <Nav.Link href="#"><h6>Contactanos</h6></Nav.Link>
+                <Nav.Link eventKey={2} href="#">
                   <h6>Mi App</h6>
                 </Nav.Link>
             </Nav>

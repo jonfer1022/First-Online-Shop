@@ -53,7 +53,7 @@ const SliderMult = (props) => {
 
   return(
     <Fragment>
-      <div className="App">
+      <div id={props.id} className="App">
         <Carousel breakPoints={breakPoints}>
           { getItems(props.discounts) }
         </Carousel>

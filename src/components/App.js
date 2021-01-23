@@ -7,7 +7,7 @@ import Contact from './Contact';
 import Footer from './Footer';
 import Slider from './Slider';
 import SliderMult from './SliderMult';
-import { Header } from './Header';
+import Header from './Header';
 import { Layout } from './Layout';
 import imagen from '../img/img-portafolio/01-small.jpg';
 import { dataSlider } from '../dataSlider.json';
@@ -19,10 +19,9 @@ function App() {
     <Fragment>
       <header>
         <NavBar/>
-        <Header/>
+        <Header id="header"/>
       </header>
-      <br/>
-      <Slider categories={dataSlider}/>
+      <Slider id="categories" categories={dataSlider}/>
       <br/>
       <SectionTitle 
         title="¡LO ÚLTIMO!" 
@@ -37,7 +36,8 @@ function App() {
         img={"https://raw.githubusercontent.com/jonfer1022/First-Online-Shop/main/src/img/img_subtitles.jpg"||imagen}
       />
       <br/>
-      <SliderMult discounts={dataSliderMult}/>
+      {/* <SliderMult id="discounts" discounts={dataSliderMult}/> */}
+      <SliderMult id="discounts" discounts={dataSliderMult}/>
       <Contact />
       <Footer />
       <Layout>
