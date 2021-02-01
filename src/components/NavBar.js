@@ -4,19 +4,28 @@ import Scroll from 'react-scroll';
 import './styles/NavBar.scss'
 // import {Link} from "react-scroll";
 
-const NavBar = () => {
+const NavBar = (props) => {
 
   var scroll = Scroll.animateScroll;
 
-  window.addEventListener("scroll", function(event) {
-    if (this.scrollY > 150) {
+  if(props.side === "Home"){
+    // Escucha el evento del movimiento del scroll para cambiar el Style de la navegación 
+    window.addEventListener("scroll", function(event) {
+      if (this.scrollY > 150) {
+        document.getElementById("navbar-main").classList.remove('nav-bar-main');
+        document.getElementById("navbar-main").classList.add('nav-bar-main-scrollY');
+      }else{
+        document.getElementById("navbar-main").classList.remove('nav-bar-main-scrollY');
+        document.getElementById("navbar-main").classList.add('nav-bar-main');
+      }
+    },false);
+  } // Si se cambia a la página de productos la navegación cambia a un Style en específico 
+  else if (props.side === "Products"){
+    if((document.getElementById("navbar-main").classList)[0] === "nav-bar-main"){
       document.getElementById("navbar-main").classList.remove('nav-bar-main');
       document.getElementById("navbar-main").classList.add('nav-bar-main-scrollY');
-    }else{
-      document.getElementById("navbar-main").classList.remove('nav-bar-main-scrollY');
-      document.getElementById("navbar-main").classList.add('nav-bar-main');
     }
-  },false);
+  }
 
   const handleSearchPosition = function(elemento, cantidad){
     let element = document.getElementById(elemento);
@@ -48,7 +57,7 @@ const NavBar = () => {
                 </NavDropdown>
                 </Nav>
             <Nav>
-                <Nav.Link href="#"><h6>Contactanos</h6></Nav.Link>
+                <Nav.Link href="/products"><h6>Contactanos</h6></Nav.Link>
                 <Nav.Link eventKey={2} href="#">
                   <h6>Mi App</h6>
                 </Nav.Link>

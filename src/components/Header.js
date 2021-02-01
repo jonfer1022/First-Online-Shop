@@ -13,14 +13,14 @@ const Header = (props) => {
   //  <Link to="theLast" smooth={true} class="btn-custom btn-lg page-scroll">¡Descubre lo último!</Link> */
   
   return(
-    <div id={props.id} class="intro">
-      <div class="overlay">
-        <div class="container">
-          <div class="row">
-            <div class="intro-text">
+    <div id={props.id} className="intro">
+      <div className="overlay">
+        <div className="container">
+          <div className="row">
+            <div className="intro-text">
               <h1>Samplhes</h1>
               <p>Ropa a tu medida</p>
-              <a href="#/" onClick={() => handleSearchPosition("theLast",380)} class="btn-custom btn-lg page-scroll">¡Descubre lo último!</a> 
+              <a href="#/" onClick={() => handleSearchPosition("theLast",380)} className="btn-custom btn-lg page-scroll">¡Descubre lo último!</a> 
             </div>
           </div>
         </div>

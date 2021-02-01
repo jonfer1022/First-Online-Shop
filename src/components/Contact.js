@@ -3,6 +3,10 @@ import './styles/Footer.scss';
 
 const Contact = (props) => {
   
+  // let variable = document.getElementById("navbar-main")
+  // console.log(variable);
+  // console.log("algo")
+
   return(
     <Fragment>
       {/* -- Contact information -- */}

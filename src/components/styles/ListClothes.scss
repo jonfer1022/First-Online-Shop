@@ -1,0 +1,30 @@
+
+.list-clothes .card{
+    width: 23%;
+    display: inline-block;
+    margin: 0% 0% 1% 1.5%;
+}
+
+.list-clothes .clothes-img{
+    width: 100%;
+}
+
+.list-clothes .card-header{
+    padding: 0%;
+}
+
+.card-description{
+    text-align: left;
+    font-size: 0.95rem;
+}
+
+.card-price{
+    font-size: 1.25rem;
+    font-weight: bolder;
+}
+
+.MuiPagination-ul{
+    // border: solid;
+    margin: 1.5% !important;
+    justify-content: center;
+}
