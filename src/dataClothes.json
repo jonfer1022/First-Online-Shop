@@ -1,0 +1,95 @@
+{
+    "dataPortafolio": [
+        {
+            "id": 1,
+            "producto": "Chaquetas",
+            "src": "../img/img-portafolio/Ropa1.jpg"
+        },
+        {
+            "id":2,
+            "producto":"Buzos",
+            "src": "../img/img-portafolio/Ropa1.jpg"
+        },
+        {
+            "id":3,
+            "producto":"Camisas",
+            "src": "../img/img-portafolio/Ropa1.jpg"
+        },
+        {
+            "id":4,
+            "producto":"Vestidos",
+            "src": "../img/img-portafolio/Ropa1.jpg"
+        },
+        {
+            "id":5,
+            "producto":"Pantalones",
+            "src": "../img/img-portafolio/Ropa1.jpg"
+        },
+        {
+            "id":6,
+            "producto":"Zapatos",
+            "src": "../img/img-portafolio/Ropa1.jpg"
+        },
+        {
+            "id":7,
+            "producto":"Interiores",
+            "src": "../img/img-portafolio/Ropa1.jpg"
+        },
+        {
+            "id":8,
+            "producto":"Deportivo",
+            "src": "../img/img-portafolio/Ropa1.jpg"
+        },
+        {
+            "id":9,
+            "producto":"Disfraces",
+            "src": "../img/img-portafolio/Ropa1.jpg"
+        },
+        {
+            "id":10,
+            "producto":"Interiores",
+            "src": "../img/img-portafolio/Ropa1.jpg"
+        },
+        {
+            "id":11,
+            "producto":"Deportivo",
+            "src": "../img/img-portafolio/Ropa1.jpg"
+        },
+        {
+            "id":12,
+            "producto":"Disfraces",
+            "src": "../img/img-portafolio/Ropa1.jpg"
+        },
+        {
+            "id":13,
+            "producto":"Interiores",
+            "src": "../img/img-portafolio/Ropa1.jpg"
+        },
+        {
+            "id":14,
+            "producto":"Deportivo",
+            "src": "../img/img-portafolio/Ropa1.jpg"
+        },
+        {
+            "id":15,
+            "producto":"Disfraces",
+            "src": "../img/img-portafolio/Ropa1.jpg"
+        },
+        {
+            "id":16,
+            "producto":"Interiores",
+            "src": "../img/img-portafolio/Ropa1.jpg"
+        },
+        {
+            "id":17,
+            "producto":"Deportivo",
+            "src": "../img/img-portafolio/Ropa1.jpg"
+        },
+        {
+            "id":18,
+            "producto":"Disfraces",
+            "src": "../img/img-portafolio/Ropa1.jpg"
+        }
+    ]
+}
+

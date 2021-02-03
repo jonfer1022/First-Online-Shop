@@ -1,15 +1,13 @@
 .products-main{
-    // border: solid;
     width: 100%;
-    // height: 100px;
     margin-top: 60px;
 }
 
 .filters{
     display: inline-block;
-    border: solid;
     height: 100%;
     width: 20%;
+    vertical-align: top;
 }
 
 .products-list{
@@ -17,4 +15,11 @@
     // border: solid;
     // height: 100%;
     width: 80%;
+}
+
+.form-group{
+    position: relative;
+    top: 25px;
+    margin-left: 2%;
+    margin-top: 2%;
 }
