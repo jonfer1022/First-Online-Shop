@@ -12,14 +12,40 @@
 
 .products-list{
     display: inline-block;
-    // border: solid;
-    // height: 100%;
     width: 80%;
 }
 
-.form-group{
+.ordenar{
+    height: 100px;
+}
+
+.ordenar .form-group{
     position: relative;
     top: 25px;
     margin-left: 2%;
     margin-top: 2%;
+}
+
+.talla{
+    padding: 2%;
+}
+
+.talla .colm-1{
+    display: inline-block;
+    width: 50%;
+    padding-left: 15%;
+}
+
+.talla .colm-2{
+    display: inline-block;
+    width: 50%;
+    padding-left: 15%;
+}
+
+.rango{
+    padding: 2%;
+}
+
+.slider-rango{
+    margin-left: 5%;
 }
