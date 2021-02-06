@@ -1,13 +1,9 @@
 import React, { Fragment } from 'react';
 import { Card, Image } from 'react-bootstrap';
 import './styles/CardClothes.scss';
-// import RopaImg from '../img/img-portafolio/01-small.jpg';
-// import RopaImg from '../img/bg_image.jpg';
+import RopaImg from '../img/img-portafolio/01-small.jpg';
 
 const CardClothes = (data) =>{
-
-    // console.log(RopaImg);
-
     // Mapeamos el arreglo data que contiene los productos y crea un Card por cada producto.
     return (
         <Fragment>
@@ -17,7 +13,8 @@ const CardClothes = (data) =>{
             border="light">
                 <Card.Header className="textTitle">{product.producto}</Card.Header>
                 <a href={"/producto"} >
-                    <Image src={product.imgRopa} className="img-responsive" rounded/>
+                    <Image src={product.src || RopaImg}
+                    className="img-responsive" rounded/>
                 </a>
                 <div className="div-footer">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit duis sed dapibus leonec.

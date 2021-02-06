@@ -1,50 +1,76 @@
 {
-    "dataPortafolio": [
+    "dataSliderMult": [
         {
             "id": 1,
             "producto": "Chaquetas",
+            "description": "Las mejores chaquetas",
             "src": "https://raw.githubusercontent.com/jonfer1022/First-Online-Shop/main/src/img/bg_image.jpg"
         },
         {
             "id":2,
             "producto":"Buzos",
+            "description": "Los mejores Buzos",
             "src": "https://raw.githubusercontent.com/jonfer1022/First-Online-Shop/main/src/img/bg_image.jpg"
         },
         {
             "id":3,
             "producto":"Camisas",
+            "description": "Las mejores camisas",
             "src": "https://raw.githubusercontent.com/jonfer1022/First-Online-Shop/main/src/img/bg_image.jpg"
         },
         {
             "id":4,
             "producto":"Vestidos",
+            "description": "Los mejores vestidos",
             "src": "https://raw.githubusercontent.com/jonfer1022/First-Online-Shop/main/src/img/bg_image.jpg"
         },
         {
-            "id":5,
-            "producto":"Pantalones",
+            "id": 5,
+            "producto": "Chaquetas",
+            "description": "Las mejores chaquetas",
             "src": "https://raw.githubusercontent.com/jonfer1022/First-Online-Shop/main/src/img/bg_image.jpg"
         },
         {
             "id":6,
-            "producto":"Zapatos",
+            "producto":"Buzos",
+            "description": "Los mejores Buzos",
             "src": "https://raw.githubusercontent.com/jonfer1022/First-Online-Shop/main/src/img/bg_image.jpg"
         },
         {
             "id":7,
-            "producto":"Interiores",
+            "producto":"Camisas",
+            "description": "Las mejores camisas",
             "src": "https://raw.githubusercontent.com/jonfer1022/First-Online-Shop/main/src/img/bg_image.jpg"
         },
         {
             "id":8,
-            "producto":"Deportivo",
+            "producto":"Vestidos",
+            "description": "Los mejores vestidos",
             "src": "https://raw.githubusercontent.com/jonfer1022/First-Online-Shop/main/src/img/bg_image.jpg"
         },
         {
-            "id":9,
-            "producto":"Disfraces",
+            "id": 9,
+            "producto": "Chaquetas",
+            "description": "Las mejores chaquetas",
+            "src": "https://raw.githubusercontent.com/jonfer1022/First-Online-Shop/main/src/img/bg_image.jpg"
+        },
+        {
+            "id": 10,
+            "producto":"Buzos",
+            "description": "Los mejores Buzos",
+            "src": "https://raw.githubusercontent.com/jonfer1022/First-Online-Shop/main/src/img/bg_image.jpg"
+        },
+        {
+            "id": 11,
+            "producto":"Camisas",
+            "description": "Las mejores camisas",
+            "src": "https://raw.githubusercontent.com/jonfer1022/First-Online-Shop/main/src/img/bg_image.jpg"
+        },
+        {
+            "id": 12,
+            "producto":"Vestidos",
+            "description": "Los mejores vestidos",
             "src": "https://raw.githubusercontent.com/jonfer1022/First-Online-Shop/main/src/img/bg_image.jpg"
         }
     ]
 }
-

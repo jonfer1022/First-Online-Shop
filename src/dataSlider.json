@@ -1,0 +1,29 @@
+{
+    "dataSlider": [
+        {
+            "id": 1,
+            "producto": "Chaquetas",
+            "description": "Las mejores chaquetas",
+            "src": "https://raw.githubusercontent.com/jonfer1022/First-Online-Shop/main/src/img/img-sliders/img-slider-jacket.jpg"
+        },
+        {
+            "id":2,
+            "producto":"Buzos",
+            "description": "Los mejores Buzos",
+            "src": "https://raw.githubusercontent.com/jonfer1022/First-Online-Shop/main/src/img/img-sliders/img-slider-sweater.jpg"
+        },
+        {
+            "id":3,
+            "producto":"Camisas",
+            "description": "Las mejores camisas",
+            "src": "https://raw.githubusercontent.com/jonfer1022/First-Online-Shop/main/src/img/img-sliders/img-slider-shirt.jpg"
+        },
+        {
+            "id":4,
+            "producto":"Vestidos",
+            "description": "Los mejores vestidos",
+            "src": "https://raw.githubusercontent.com/jonfer1022/First-Online-Shop/main/src/img/img-sliders/img-slider-dress.jpg"
+        }
+    ]
+}
+

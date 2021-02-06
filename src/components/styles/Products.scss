@@ -1,0 +1,51 @@
+.products-main{
+    width: 100%;
+    margin-top: 60px;
+}
+
+.filters{
+    display: inline-block;
+    height: 100%;
+    width: 20%;
+    vertical-align: top;
+}
+
+.products-list{
+    display: inline-block;
+    width: 80%;
+}
+
+.ordenar{
+    height: 100px;
+}
+
+.ordenar .form-group{
+    position: relative;
+    top: 25px;
+    margin-left: 2%;
+    margin-top: 2%;
+}
+
+.talla{
+    padding: 2%;
+}
+
+.talla .colm-1{
+    display: inline-block;
+    width: 50%;
+    padding-left: 15%;
+}
+
+.talla .colm-2{
+    display: inline-block;
+    width: 50%;
+    padding-left: 15%;
+}
+
+.rango{
+    padding: 2%;
+}
+
+.slider-rango{
+    margin-left: 5%;
+}

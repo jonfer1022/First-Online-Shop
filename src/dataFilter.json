@@ -1,0 +1,29 @@
+{
+    "dataFilter": [
+        {
+            "id": 1,
+            "nombre_filtro": "Por Default"           
+        },
+        {
+            "id": 2,
+            "nombre_filtro": "Menor Precio"           
+        },
+        {
+            "id": 3,
+            "nombre_filtro": "Mayor Precio"           
+        },
+        {
+            "id": 4,
+            "nombre_filtro": "Más vendido"           
+        },
+        {
+            "id": 5,
+            "nombre_filtro": "Fecha de lanzamiento"           
+        },
+        {
+            "id": 6,
+            "nombre_filtro": "Mejor descuento"   
+        }
+    ]
+}
+
