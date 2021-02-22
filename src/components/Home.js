@@ -1,20 +1,27 @@
 import React, { Fragment } from 'react';
+import firtsAction from '../lib/firtsAction'
 import Portafolio from './Portafolio';
 import SectionTitle from './SectionTitle';
 import Contact from './Contact';
 import Slider from './Slider';
 import SliderMult from './SliderMult';
 import imagen from '../img/img-portafolio/01-small.jpg';
-import { dataSlider } from '../dataSlider.json';
 import { dataSliderMult } from '../dataSliderMult.json';
+import { useDispatch, useSelector } from 'react-redux';
+import { getDataInitial, getCategoriesAction, getDiscountClothesAction } from '../redux/ducks/home.Ducks';
 
 const Home = (props) => {
 
+  const dispatch = useDispatch();
+  const categories = useSelector(store => store.home.categories);
+  const discountClothes = useSelector(store => store.home.discountClothes);
+  
+  // console.log(discountClothes);
   props.action("Home");
 
   return(
     <Fragment>
-        <Slider id="categories" categories={dataSlider}/>
+        <Slider id="categories" categories={categories}/>
         <br/>
         <SectionTitle 
           title="¡LO ÚLTIMO!" 
@@ -35,4 +42,4 @@ const Home = (props) => {
   );
 }
 
-export default Home;
+export default firtsAction( {render: Home} , {action: { initial: getDataInitial , data: [getCategoriesAction, getDiscountClothesAction] }} );

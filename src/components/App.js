@@ -1,5 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import generateStore from '../redux/store';
 import Footer from './Footer';
 import Products from './Products';
 import { Layout } from './Layout';
@@ -11,7 +13,7 @@ import './styles/body.scss';
 function App() {
   
   const [side,setSide] = useState(null)
-
+  const store = generateStore()
   const lugar = data => setSide(data);
 
   return (
@@ -21,16 +23,18 @@ function App() {
         {side === "Home" ? <Header id="header"/> : null}
       </header>
       <body>
-        <Layout>
-          <BrowserRouter>
-            <Switch>
-              <Route exact path ="/home" children={<Home action={lugar}/>} />
-              <Route exact path ="/products" children={<Products action={lugar} />}/>              
-              <Redirect from="/" to="/home" />
-              {/* <Route component={NotFound}/> */}
-            </Switch>
-          </BrowserRouter>
-        </Layout>
+        <Provider store = { store }>
+          <Layout>
+            <BrowserRouter>
+              <Switch>
+                <Route exact path ="/home" children={<Home action={lugar}/>} />
+                <Route exact path ="/products" children={<Products action={lugar} />}/>              
+                <Redirect from="/" to="/home" />
+                {/* <Route component={NotFound}/> */}
+              </Switch>
+            </BrowserRouter>
+          </Layout>
+        </Provider>
         <Footer />
       </body>
     </Fragment>

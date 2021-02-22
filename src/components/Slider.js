@@ -16,11 +16,11 @@ const Slider = (props) => {
           <Carousel.Item key={category.id}>
             <img
               className="img-slider"
-              src={category.src}
+              src={category.image_path}
               alt={`slide #${category.id}`}
             />
             <Carousel.Caption>
-              <h3>{category.producto}</h3>
+              <h3>{category.categories}</h3>
               <p>{category.description}</p>
             </Carousel.Caption>
           </Carousel.Item>

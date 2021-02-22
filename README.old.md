@@ -12,3 +12,7 @@ npm i @material-ui/lab
 npm install --save react-elastic-carousel <!-- It's necessary to use carousel -->
 npm install --save styled-components <!-- It's necessary to use react elastic carousel for styling -->
 npm install react-scroll  <!-- It's necessary for moving between sections -->
+<!-- Uso librerías REDUX -->
+npm i redux react-redux redux-devtools redux-thunk axios
+<!-- redux-thunk sirve para majenar promesas (idea global) -->
+<!-- axios que usado para realizar peticiones HTTP y api rest  -->
