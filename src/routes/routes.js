@@ -1,6 +1,6 @@
-export default {
+const routes = {
   endpoints: {
-    getProducts:{
+    getCategories:{
       method: "get",
       url: "http://localhost:3001/home/categories"
     },
@@ -8,5 +8,14 @@ export default {
       method: "get",
       url: "http://localhost:3001/home/discountClothes"
     },
+    getLastestCollection:{
+      method: "get",
+      url: "http://localhost:3001/home/lastestCollection"
+    },
+    getAllProducts:{
+      method: "get",
+      url: "http://localhost:3001/products/allProducts"
+    }
   }
 }
+export default routes 

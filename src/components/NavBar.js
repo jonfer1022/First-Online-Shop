@@ -1,12 +1,15 @@
 import React from 'react';
 import {Nav, Navbar, NavDropdown} from "react-bootstrap";
 import Scroll from 'react-scroll';
-import './styles/NavBar.scss'
+import './styles/NavBar.scss';
+import { getAllProductsAction } from '../redux/ducks/products.Ducks'
+import { useDispatch , useSelector } from 'react-redux';
 // import {Link} from "react-scroll";
 
 const NavBar = (props) => {
 
   var scroll = Scroll.animateScroll;
+  const dispatch = useDispatch();
 
   if(props.side === "Home"){
     // Escucha el evento del movimiento del scroll para cambiar el Style de la navegación 
@@ -30,6 +33,11 @@ const NavBar = (props) => {
   const handleSearchPosition = function(elemento, cantidad){
     let element = document.getElementById(elemento);
     scroll.scrollTo(element.offsetTop - cantidad);
+  }
+
+  const funcion = function(){
+    console.log("funcion");
+    dispatch( getAllProductsAction() )
   }
 
   // <Link to="categories" smooth={true}><h6>Categorias</h6></Link>
@@ -57,7 +65,8 @@ const NavBar = (props) => {
                 </NavDropdown>
                 </Nav>
             <Nav>
-                <Nav.Link href="/products"><h6>Contactanos</h6></Nav.Link>
+                {/* <Nav.Link href="/products"><h6>Contactanos</h6></Nav.Link> */}
+                <Nav.Link onClick={() => funcion()} ><h6>Contactanos</h6></Nav.Link>
                 <Nav.Link eventKey={2} href="#">
                   <h6>Mi App</h6>
                 </Nav.Link>

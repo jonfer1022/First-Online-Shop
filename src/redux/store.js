@@ -2,10 +2,11 @@ import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
 import homeReducer from './ducks/home.Ducks';
+import productsReducer from './ducks/products.Ducks'
 
 const rootReducer = combineReducers({
   home: homeReducer,
-  // algo: reducer
+  products: productsReducer
 })
 
 // Constante para configurar la extensión DevRedux Tools de google Chrome 

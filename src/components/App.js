@@ -18,12 +18,12 @@ function App() {
 
   return (
     <Fragment>
+      <Provider store = { store }>
       <header>
         <NavBar side={side}/>
         {side === "Home" ? <Header id="header"/> : null}
       </header>
       <body>
-        <Provider store = { store }>
           <Layout>
             <BrowserRouter>
               <Switch>
@@ -34,9 +34,9 @@ function App() {
               </Switch>
             </BrowserRouter>
           </Layout>
-        </Provider>
         <Footer />
       </body>
+      </Provider>
     </Fragment>
   );
 }

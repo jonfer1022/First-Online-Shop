@@ -4,14 +4,15 @@ import routes from '../../routes/routes';
 //Constantes
 const dataInicial = {
   categories: [],
-  discountClothes: []
+  discountClothes: [],
+  lastestCollection: []
 }
 
 // Types
 const GET_DATA_INITIAL = "GET_DATA_INITIAL";
 const GET_CATEGORIES = "GET_CATEGORIES";
 const GET_DISCOUNTS_CLOTHES = "GET_DISCOUNTS_CLOTHES";
-const UPDATE_PRODUCTS_BY_ID = "UPDATE_PRODUCTS_BY_ID";
+const GET_LASTEST_COLLECTION = "GET_LASTEST_COLLECTION";
 
 //reducer
 export default function productsReducer(state = dataInicial, action){
@@ -22,8 +23,8 @@ export default function productsReducer(state = dataInicial, action){
       return {...state, categories: action.payload}
     case GET_DISCOUNTS_CLOTHES:
       return {...state, discountClothes: action.payload}
-    case UPDATE_PRODUCTS_BY_ID:
-      return {...state, categories: action.payload}
+    case GET_LASTEST_COLLECTION:
+      return {...state, lastestCollection: action.payload}
     default:
       return state
   }
@@ -39,7 +40,7 @@ export const getDataInitial = () => async (dispatch, getState) => {
 
 export const getCategoriesAction = () => async (dispatch, getState) => {
   try {
-    const res = await axios.get(routes.endpoints.getProducts.url)
+    const res = await axios.get(routes.endpoints.getCategories.url)
     dispatch({
       type: GET_CATEGORIES,
       payload: res.data
@@ -54,6 +55,18 @@ export const getDiscountClothesAction = () => async (dispatch, getState) => {
     const res = await axios.get(routes.endpoints.getDiscountClothes.url)
     dispatch({
       type: GET_DISCOUNTS_CLOTHES,
+      payload: res.data
+    })
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export const getLastestCollectionAction = ({amount}) => async (dispatch, getState) => {
+  try {
+    const res = await axios.get(`${routes.endpoints.getLastestCollection.url}?amount=${amount}`)
+    dispatch({
+      type: GET_LASTEST_COLLECTION,
       payload: res.data
     })
   } catch (error) {

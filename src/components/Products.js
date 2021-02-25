@@ -5,11 +5,15 @@ import { dataPortafolio } from '../dataClothes.json';
 import { dataFilter } from '../dataFilter.json';
 import { Form } from 'react-bootstrap';
 import Slider from '@material-ui/core/Slider';
+import { useDispatch , useSelector } from 'react-redux';
 
 const Products = (props) => {
   
   props.action("Products");
-  
+
+  const algo = useSelector(store => store.products.products);
+  console.log(algo);
+
   const [value, setValue] = React.useState([0, 200]);
 
   const handleChange = (event, newValue) => {
@@ -19,7 +23,6 @@ const Products = (props) => {
   // const valuetext = (value) => {
   //   return `${value}°C`;
   // }
-
   // console.log(value);
 
   return(
