@@ -1,19 +1,32 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useEffect, useState} from 'react';
 import ListClothes from './ListClothes';
+// import firtsAction from '../lib/firtsAction';
 import './styles/Products.scss';
 import { dataPortafolio } from '../dataClothes.json';
 import { dataFilter } from '../dataFilter.json';
 import { Form } from 'react-bootstrap';
 import Slider from '@material-ui/core/Slider';
 import { useDispatch , useSelector } from 'react-redux';
+import { useLocation } from "react-router-dom";
+import productsAction from '../redux/ducks/products.Ducks';
 
 const Products = (props) => {
+
+  const dispatch = useDispatch();
+  const location = useLocation();
+  const products = useSelector(store => store.products.products || {});
+
+  // console.log(products);
+
+  useEffect( ()=>{
+    dispatch(productsAction.getAllProducts(
+      location.state.gender,
+      location.state.category
+    ));
+  },[dispatch])
   
   props.action("Products");
-
-  const algo = useSelector(store => store.products.products);
-  console.log(algo);
-
+  
   const [value, setValue] = React.useState([0, 200]);
 
   const handleChange = (event, newValue) => {
@@ -83,3 +96,12 @@ const Products = (props) => {
 }
 
 export default Products;
+// export default firtsAction( 
+  // {render: Products} , 
+  // {action: { initial: location.state.action } } 
+  // {params_body: {
+  //   params: [{position: 2, data: {amount: 10}}],
+  //   // body: [{position: 2, data: {data1: 15, data2:2} }]
+  // }
+  // } 
+// );

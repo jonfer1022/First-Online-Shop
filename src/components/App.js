@@ -1,7 +1,8 @@
 import React, { Fragment, useState } from 'react';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect, /*BrowserRouter*/ } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import generateStore from '../redux/store';
+import generateStore, { history } from '../redux/store';
+import { ConnectedRouter } from 'connected-react-router';
 import Footer from './Footer';
 import Products from './Products';
 import { Layout } from './Layout';
@@ -19,23 +20,25 @@ function App() {
   return (
     <Fragment>
       <Provider store = { store }>
-      <header>
-        <NavBar side={side}/>
-        {side === "Home" ? <Header id="header"/> : null}
-      </header>
-      <body>
-          <Layout>
-            <BrowserRouter>
-              <Switch>
-                <Route exact path ="/home" children={<Home action={lugar}/>} />
-                <Route exact path ="/products" children={<Products action={lugar} />}/>              
-                <Redirect from="/" to="/home" />
-                {/* <Route component={NotFound}/> */}
-              </Switch>
-            </BrowserRouter>
-          </Layout>
-        <Footer />
-      </body>
+        <ConnectedRouter history={history}>
+          <header>
+            <NavBar side={side}/>
+            {side === "Home" ? <Header id="header"/> : null}
+          </header>
+          <body>
+              <Layout>
+                {/* <BrowserRouter> */}
+                  <Switch>
+                    <Route exact path ="/home" children={<Home action={lugar}/>} />
+                    <Route path ='/products' children={<Products action={lugar} />}/>              
+                    <Redirect from="/" to="/home" />
+                    {/* <Route component={NotFound}/> */}
+                  </Switch>
+                {/* </BrowserRouter> */}
+              </Layout>
+            <Footer />
+          </body>
+        </ConnectedRouter>
       </Provider>
     </Fragment>
   );

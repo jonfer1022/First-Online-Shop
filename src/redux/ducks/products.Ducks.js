@@ -1,14 +1,38 @@
-import axios from 'axios';
-import routes from '../../routes/routes';
+import { createActions, createReducer } from "reduxsauce"
 
-//Constantes
-const dataInicial = {
+//Creación de acciones types y creators
+export const { Types, Creators } = createActions({
+  resetValues: [],
+  getAllProducts: ["gender","category"],
+  getAllProductsSuccess: ["products"]
+});
+
+export const productsTypes = Types;
+export default Creators;
+
+//Creación reducer handlers
+export const INITIAL_STATE = {
   products: [],
-  //--------
-  discountClothes: [],
-  lastestCollection: []
+  gender: null,
+  category: null
 }
 
+const getAllProducts = (state = INITIAL_STATE, action) => ({
+  ...state
+})
+
+const getAllProductsSuccess = (state = INITIAL_STATE, data) => ({
+  ...state, products: data.products
+})
+
+export const reducer =  createReducer(INITIAL_STATE,{
+  // [Types.RESET_VALUES]: resetValues,
+  [Types.GET_ALL_PRODUCTS]: getAllProducts,
+  [Types.GET_ALL_PRODUCTS_SUCCESS]: getAllProductsSuccess
+});
+
+
+/*
 // Types
 const GET_DATA_INITIAL = "GET_DATA_INITIAL";
 const GET_ALL_PRODUCTS = "GET_ALL_PRODUCTS";
@@ -21,8 +45,7 @@ export default function productsReducer(state = dataInicial, action){
     case GET_DATA_INITIAL:
       return {...state}
     case GET_ALL_PRODUCTS:
-      console.log(action.payload);
-      return {...state, products: action.payload}
+      return {...state, products: action.payload.products}
     case GET_DISCOUNTS_CLOTHES:
       return {...state, discountClothes: action.payload}
     case GET_LASTEST_COLLECTION:
@@ -40,13 +63,15 @@ export const getDataInitial = () => async (dispatch, getState) => {
   })
 }
 
-export const getAllProductsAction = () => async (dispatch, getState) => {
+export const getAllProductsAction = (side) => async (dispatch, getState) => {
   try {
-    console.log("llego");
     const res = await axios.get(routes.endpoints.getAllProducts.url)
     dispatch({
       type: GET_ALL_PRODUCTS,
-      payload: res.data
+      payload: {
+        products: res.data,
+        side
+      }
     })
   } catch (error) {
     console.error(error);
@@ -132,3 +157,5 @@ export const getLastestCollectionAction = ({amount}) => async (dispatch, getStat
 //     console.error(error);
 //   }
 // }
+
+*/

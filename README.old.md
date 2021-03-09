@@ -16,3 +16,11 @@ npm install react-scroll  <!-- It's necessary for moving between sections -->
 npm i redux react-redux redux-devtools redux-thunk axios
 <!-- redux-thunk sirve para majenar promesas (idea global) -->
 <!-- axios que usado para realizar peticiones HTTP y api rest  -->
+npm i reduxsauce
+<!-- Usado para simplificar los reducer y unir los reduce con las acciones -->
+npm install --save redux-observable
+<!-- ... -->
+npm install rxjs
+<!-- ... -->
+npm i rxjs-compat
+<!-- ... -->
