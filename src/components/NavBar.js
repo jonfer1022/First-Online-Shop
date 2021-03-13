@@ -5,12 +5,21 @@ import './styles/NavBar.scss';
 import { useDispatch } from 'react-redux';
 import { push } from "connected-react-router";
 import { useHistory } from "react-router-dom";
+import master_data from '../master_data';
 
 const NavBar = (props) => {
 
   var scroll = Scroll.animateScroll;
   const history = useHistory();
   const dispatch = useDispatch();
+  
+  const female = master_data.clothes_gender.female;
+  const male = master_data.clothes_gender.male;
+  const jackets = master_data.clothes_categories.jackets;
+  const sweater = master_data.clothes_categories.sweater;
+  const shirts = master_data.clothes_categories.shirts;
+  const dresses = master_data.clothes_categories.dresses;
+  const shoes = master_data.clothes_categories.shoes;
 
   function scrollHome() {
     if (window.scrollY > 150 ) {
@@ -38,7 +47,7 @@ const NavBar = (props) => {
     scroll.scrollTo(element.offsetTop - cantidad);
   }
 
-  const openProductsWith = (gender = false, category = false) => {
+  const openProductsWith = (gender = "", category = "") => {
     history.push({pathname: "/products", state:{
         gender,
         category,
@@ -55,23 +64,25 @@ const NavBar = (props) => {
             <Nav className="mr-auto">
               <Nav.Link onClick={() => handleSearchPosition("categories",80)}><h6>Categorias</h6></Nav.Link>
               <Nav.Link onClick={() => handleSearchPosition("discounts",400)}><h6>Descuentos</h6></Nav.Link>
-              <NavDropdown title="Productos" id="collasible-nav-dropdown">
-                <NavDropdown className="text-center" drop={'right'} title="Para Hombres">
-                  <NavDropdown.Item >Buzos</NavDropdown.Item>
-                  <NavDropdown.Item >Camisas</NavDropdown.Item>
-                  <NavDropdown.Item >Chaquetas</NavDropdown.Item>
-                  <NavDropdown.Item >Zapatos</NavDropdown.Item>
+              { props.side === master_data.sides.home ?
+                <NavDropdown title="Productos" id="collasible-nav-dropdown">
+                  <NavDropdown className="text-center" drop={'right'} title="Para Hombres">
+                    <NavDropdown.Item onClick={() => openProductsWith(male,sweater)}>Buzos</NavDropdown.Item>
+                    <NavDropdown.Item onClick={() => openProductsWith(male,shirts)}>Camisas</NavDropdown.Item>
+                    <NavDropdown.Item onClick={() => openProductsWith(male,jackets)}>Chaquetas</NavDropdown.Item>
+                    <NavDropdown.Item onClick={() => openProductsWith(male,shoes)}>Zapatos</NavDropdown.Item>
+                  </NavDropdown>
+                  <NavDropdown className="text-center" drop={'right'} title="Para Mujeres">
+                    <NavDropdown.Item onClick={() => openProductsWith(female,sweater)}>Buzos</NavDropdown.Item>
+                    <NavDropdown.Item onClick={() => openProductsWith(female,shirts)}>Camisas</NavDropdown.Item>
+                    <NavDropdown.Item onClick={() => openProductsWith(female,dresses)}>Vestidos</NavDropdown.Item>
+                    <NavDropdown.Item onClick={() => openProductsWith(female,shoes)}>Zapatos</NavDropdown.Item>
+                  </NavDropdown>
+                  <NavDropdown.Divider />
+                    <NavDropdown.Item onClick={() => openProductsWith()}>Portafolio completo</NavDropdown.Item>
                 </NavDropdown>
-                <NavDropdown className="text-center" drop={'right'} title="Para Mujeres">
-                  <NavDropdown.Item >Buzos</NavDropdown.Item>
-                  <NavDropdown.Item >Camisas</NavDropdown.Item>
-                  <NavDropdown.Item >Vestidos</NavDropdown.Item>
-                  <NavDropdown.Item >Zapatos</NavDropdown.Item>
-                </NavDropdown>
-                <NavDropdown.Divider />
-                  <NavDropdown.Item onClick={() => openProductsWith()}>Portafolio completo</NavDropdown.Item>
-              </NavDropdown>
-              </Nav>
+              : null }
+            </Nav>
             <Nav>
               <Nav.Link ><h6>Contactanos</h6></Nav.Link>
               <Nav.Link onClick = {() => dispatch(push("/home"))}>

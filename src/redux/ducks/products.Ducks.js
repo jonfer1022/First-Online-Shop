@@ -3,7 +3,7 @@ import { createActions, createReducer } from "reduxsauce"
 //Creación de acciones types y creators
 export const { Types, Creators } = createActions({
   resetValues: [],
-  getAllProducts: ["gender","category"],
+  getAllProducts: ["gender","category","sortBy"],
   getAllProductsSuccess: ["products"]
 });
 

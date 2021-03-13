@@ -1,8 +1,6 @@
 import React, {Fragment, useEffect, useState} from 'react';
 import ListClothes from './ListClothes';
-// import firtsAction from '../lib/firtsAction';
 import './styles/Products.scss';
-import { dataPortafolio } from '../dataClothes.json';
 import { dataFilter } from '../dataFilter.json';
 import { Form } from 'react-bootstrap';
 import Slider from '@material-ui/core/Slider';
@@ -16,22 +14,36 @@ const Products = (props) => {
   const location = useLocation();
   const products = useSelector(store => store.products.products || {});
 
-  // console.log(products);
+  const [gender, setGender] = useState(location.state.gender);
+  const [category, setCategory] = useState(location.state.category);
+  const [sortBy, setSortBy] = useState(0);
+  const [value, setValue] = useState([0, 200]);
+
+  props.action("Products");
+  const maxItemsByPage = 12;
 
   useEffect( ()=>{
     dispatch(productsAction.getAllProducts(
-      location.state.gender,
-      location.state.category
+      gender,
+      category,
+      sortBy
     ));
   },[dispatch])
-  
-  props.action("Products");
-  
-  const [value, setValue] = React.useState([0, 200]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+
+  useEffect(()=>{
+    if(sortBy != 0){
+      dispatch(productsAction.getAllProducts(
+        gender,
+        category,
+        sortBy
+      ))
+    }
+  },[sortBy])
 
   // const valuetext = (value) => {
   //   return `${value}°C`;
@@ -45,7 +57,10 @@ const Products = (props) => {
           <div className="ordenar">
             <Form.Group>
               <h5>Ordenar por:</h5>
-              <Form.Control as="select">
+              <Form.Control 
+                as="select"
+                onChange = {(e) => setSortBy(dataFilter.filter(el => el.nombre_filtro === e.target.value)[0].id)}  
+              >
                 {dataFilter.map(filter =>{
                   return <option key={filter.id}>{filter.nombre_filtro}</option>
                 })}
@@ -85,10 +100,12 @@ const Products = (props) => {
           </div>
         </div>
         <div className="products-list">
-          <ListClothes 
-            amountItems = {12}
-            clothes = {dataPortafolio}
-          />   
+          {products.length > 0 ? 
+            <ListClothes 
+            amountItems = {maxItemsByPage}
+            clothes = {products}
+            />
+          : "No hay productos disponibles" }   
         </div> 
       </div>
     </Fragment>
@@ -96,12 +113,3 @@ const Products = (props) => {
 }
 
 export default Products;
-// export default firtsAction( 
-  // {render: Products} , 
-  // {action: { initial: location.state.action } } 
-  // {params_body: {
-  //   params: [{position: 2, data: {amount: 10}}],
-  //   // body: [{position: 2, data: {data1: 15, data2:2} }]
-  // }
-  // } 
-// );
