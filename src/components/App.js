@@ -1,5 +1,8 @@
 import React, { Fragment, useState } from 'react';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect, /*BrowserRouter*/ } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import generateStore, { history } from '../redux/store';
+import { ConnectedRouter } from 'connected-react-router';
 import Footer from './Footer';
 import Products from './Products';
 import { Layout } from './Layout';
@@ -11,28 +14,32 @@ import './styles/body.scss';
 function App() {
   
   const [side,setSide] = useState(null)
-
+  const store = generateStore()
   const lugar = data => setSide(data);
 
   return (
     <Fragment>
-      <header>
-        <NavBar side={side}/>
-        {side === "Home" ? <Header id="header"/> : null}
-      </header>
-      <body>
-        <Layout>
-          <BrowserRouter>
-            <Switch>
-              <Route exact path ="/home" children={<Home action={lugar}/>} />
-              <Route exact path ="/products" children={<Products action={lugar} />}/>              
-              <Redirect from="/" to="/home" />
-              {/* <Route component={NotFound}/> */}
-            </Switch>
-          </BrowserRouter>
-        </Layout>
-        <Footer />
-      </body>
+      <Provider store = { store }>
+        <ConnectedRouter history={history}>
+          <header>
+            <NavBar side={side}/>
+            {side === "Home" ? <Header id="header"/> : null}
+          </header>
+          <body>
+              <Layout>
+                {/* <BrowserRouter> */}
+                  <Switch>
+                    <Route exact path ="/home" children={<Home action={lugar}/>} />
+                    <Route path ='/products' children={<Products action={lugar} />}/>              
+                    <Redirect from="/" to="/home" />
+                    {/* <Route component={NotFound}/> */}
+                  </Switch>
+                {/* </BrowserRouter> */}
+              </Layout>
+            <Footer />
+          </body>
+        </ConnectedRouter>
+      </Provider>
     </Fragment>
   );
 }

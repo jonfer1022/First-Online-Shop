@@ -2,7 +2,6 @@ import React, {Fragment} from 'react';
 import Carousel from "react-elastic-carousel";
 import { Card, Image } from 'react-bootstrap';
 import './styles/SliderMult.scss';
-// import RopaImg from '../img/img-portafolio/01-small.jpg';
 
 const SliderMult = (props) => {
 
@@ -24,11 +23,11 @@ const SliderMult = (props) => {
             <Card key={discounts[i].id}>
               <Card.Header className="card-header-des">
                 <a href={"/producto"} >
-                  <Image src={discounts[i].src}
+                  <Image src={discounts[i].image_path}
                   className="img-responsive-des" rounded/>
                 </a>
               </Card.Header>
-              <Card.Footer>{discounts[i].producto}</Card.Footer>  
+              <Card.Footer>{discounts[i].product_name}</Card.Footer>  
             </Card>
             : null
           }
@@ -36,11 +35,11 @@ const SliderMult = (props) => {
             <Card key={discounts[i+1].id}>
               <Card.Header className="card-header-des">
                 <a href={"/producto"} >
-                  <Image src={discounts[i+1].src}
+                  <Image src={discounts[i+1].image_path}
                   className="img-responsive-des" rounded/>
                 </a>
               </Card.Header>
-              <Card.Footer>{discounts[i+1].producto}</Card.Footer>  
+              <Card.Footer>{discounts[i+1].product_name}</Card.Footer>  
             </Card>
             : null
           }

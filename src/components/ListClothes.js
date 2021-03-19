@@ -7,6 +7,7 @@ import './styles/ListClothes.scss';
 
 const ListClothes = (props) => {
 
+  // console.log(props);
   const [page,setPage] = useState(1);
   let scroll = Scroll.animateScroll;
 
@@ -34,11 +35,13 @@ const ListClothes = (props) => {
           border="light"
         >
           <Card.Header>
-            <Image src={RopaImg} className="clothes-img" rounded/>
+            <div className="card-title">{props.clothes[i].product_name}</div>
+            <Image src={props.clothes[i].image_path||RopaImg} className="clothes-img" rounded/>
           </Card.Header>
           <Card.Footer>
-            <div className="card-description">Descripción respectiva de la ropa presentada</div>
-            <div className="card-price">Precio {props.clothes[i].id}</div>
+            <div className="card-div-percentage">{props.clothes[i].percentage ? `${props.clothes[i].percentage}%`:null}</div>
+            <div className="card-description">{props.clothes[i].description}</div>
+            <div className="card-price">Precio: ${props.clothes[i].price}</div>
           </Card.Footer>
         </Card>
         : null

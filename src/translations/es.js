@@ -1,0 +1,3 @@
+export default {
+  algo: "algo"
+}

@@ -28,3 +28,22 @@
     margin: 1.5% !important;
     justify-content: center;
 }
+
+.card-title{
+    text-align: center;
+    padding-top: 2%;
+    font-size: 1.10rem;
+    font-weight: bolder;
+}
+
+.card-footer{
+    position: relative;
+}
+
+.card-div-percentage{
+    color: white;
+    font-weight: bold;
+    font-size: 1.4rem;
+    position: absolute;
+    top: -40%;
+}

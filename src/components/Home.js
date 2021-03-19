@@ -1,35 +1,51 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import Portafolio from './Portafolio';
 import SectionTitle from './SectionTitle';
 import Contact from './Contact';
 import Slider from './Slider';
 import SliderMult from './SliderMult';
-import imagen from '../img/img-portafolio/01-small.jpg';
-import { dataSlider } from '../dataSlider.json';
-import { dataSliderMult } from '../dataSliderMult.json';
+import { useDispatch , useSelector } from 'react-redux';
+import homeAction from '../redux/ducks/home.Ducks';
 
 const Home = (props) => {
 
   props.action("Home");
+  
+  let img = "https://raw.githubusercontent.com/jonfer1022/First-Online-Shop/main/src/img/img_subtitles.jpg"
+  const dispatch = useDispatch();
+  
+  const categories = useSelector(store => store.home.categories);
+  const discountClothes = useSelector(store => store.home.discountClothes);
+  const lastestCollection = useSelector(store => store.home.lastestCollection);
+  const amount = 10;
+
+  useEffect( ()=>{
+    dispatch(homeAction.getCategories());
+    dispatch(homeAction.getDiscountsClothes());
+    dispatch(homeAction.getLastestCollection(amount));
+  },[dispatch]);
 
   return(
     <Fragment>
-        <Slider id="categories" categories={dataSlider}/>
+        <Slider id="categories" categories={categories}/>
         <br/>
         <SectionTitle 
           title="¡LO ÚLTIMO!" 
           parrafo="Descubre nuestra última colección." 
-          img={"https://raw.githubusercontent.com/jonfer1022/First-Online-Shop/main/src/img/img_subtitles.jpg"||imagen}
+          img={img}
         />
-        <Portafolio />
+        <Portafolio portfolio={lastestCollection}/>
         <br/>
         <SectionTitle 
           title="¡Descuentos!" 
           parrafo="Últimos productos a muy buen precio."
-          img={"https://raw.githubusercontent.com/jonfer1022/First-Online-Shop/main/src/img/img_subtitles.jpg"||imagen}
+          img={img}
         />
         <br/>
-        <SliderMult id="discounts" discounts={dataSliderMult}/>
+        {discountClothes?.length > 0 ? 
+        <SliderMult id="discounts" discounts={discountClothes}/>  
+        : null
+        }
         <Contact />
     </Fragment>
   );
