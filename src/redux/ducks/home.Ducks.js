@@ -1,94 +1,62 @@
-import axios from 'axios';
-import routes from '../../routes/routes';
+import { createActions, createReducer } from "reduxsauce";
 
-//Constantes
-const dataInicial = {
+//Creación de acciones types y creators
+export const { Types, Creators } = createActions({
+  getCategories: [],
+  getCategoriesSuccess: ["categories"],
+  getDiscountsClothes: [],
+  getDiscountsClothesSuccess: ["discountClothes"],
+  getLastestCollection: ["amount"],
+  getLastestCollectionSuccess: ["lastestCollection"]
+});
+
+export const homeTypes = Types;
+export default Creators;
+
+//Creación reducer handlers
+export const INITIAL_STATE = {
   categories: [],
   discountClothes: [],
   lastestCollection: []
 }
 
-// Types
-const GET_DATA_INITIAL = "GET_DATA_INITIAL";
-const GET_CATEGORIES = "GET_CATEGORIES";
-const GET_DISCOUNTS_CLOTHES = "GET_DISCOUNTS_CLOTHES";
-const GET_LASTEST_COLLECTION = "GET_LASTEST_COLLECTION";
+// const getDataInitial = (state = INITIAL_STATE) => ({
+//   ...state
+// })
 
-//reducer
-export default function productsReducer(state = dataInicial, action){
-  switch (action.type) {
-    case GET_DATA_INITIAL:
-      return {...state}
-    case GET_CATEGORIES:
-      return {...state, categories: action.payload}
-    case GET_DISCOUNTS_CLOTHES:
-      return {...state, discountClothes: action.payload}
-    case GET_LASTEST_COLLECTION:
-      return {...state, lastestCollection: action.payload}
-    default:
-      return state
-  }
-};
+const getCategories = (state = INITIAL_STATE) => ({
+  ...state, categories: []
+})
 
-//acciones
-export const getDataInitial = () => async (dispatch, getState) => {
-  dispatch({
-    type: GET_DATA_INITIAL,
-    // payload: getState().home
-  })
-}
+const getDiscountsClothes = (state = INITIAL_STATE) => ({
+  ...state, discountClothes: []
+})
 
-export const getCategoriesAction = () => async (dispatch, getState) => {
-  try {
-    const res = await axios.get(routes.endpoints.getCategories.url)
-    dispatch({
-      type: GET_CATEGORIES,
-      payload: res.data
-    })
-  } catch (error) {
-    console.error(error);
-  }
-}
+const getLastestCollection = (state = INITIAL_STATE) => ({
+  ...state, lastestCollection: []
+})
 
-export const getDiscountClothesAction = () => async (dispatch, getState) => {
-  try {
-    const res = await axios.get(routes.endpoints.getDiscountClothes.url)
-    dispatch({
-      type: GET_DISCOUNTS_CLOTHES,
-      payload: res.data
-    })
-  } catch (error) {
-    console.error(error);
-  }
-}
+const getCategoriesSuccess = (state = INITIAL_STATE, data) => ({
+  ...state, categories: data.categories
+})
 
-export const getLastestCollectionAction = ({amount}) => async (dispatch, getState) => {
-  try {
-    const res = await axios.get(`${routes.endpoints.getLastestCollection.url}?amount=${amount}`)
-    dispatch({
-      type: GET_LASTEST_COLLECTION,
-      payload: res.data
-    })
-  } catch (error) {
-    console.error(error);
-  }
-}
+const getDiscountsClothesSuccess = (state = INITIAL_STATE, data) => ({
+  ...state, discountClothes: data.discountClothes
+})
 
-// export const getProductsReducerByIdAccion = (id) => async (dispatch, getState) => {
-//   try {
-//     // const res = await axios.get(`${routes.endpoints.getProducts.url}/${id}`);
-//     const res = await axios({
-//       method: routes.endpoints.getProducts.method,
-//       url: `${routes.endpoints.getProducts.url}/${id}`
-//     });
-//     dispatch({
-//       type: GET_PRODUCTS_BY_ID,
-//       payload: res.data
-//     })
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
+const getLastestCollectionSuccess = (state = INITIAL_STATE, data) => ({
+  ...state, lastestCollection: data.lastestCollection
+})
+
+export const reducer = createReducer(INITIAL_STATE,{
+  [Types.GET_CATEGORIES]: getCategories,
+  [Types.GET_CATEGORIES_SUCCESS]: getCategoriesSuccess,
+  [Types.GET_DISCOUNTS_CLOTHES]: getDiscountsClothes,
+  [Types.GET_DISCOUNTS_CLOTHES_SUCCESS]: getDiscountsClothesSuccess,
+  [Types.GET_LASTEST_COLLECTION]: getLastestCollection,
+  [Types.GET_LASTEST_COLLECTION_SUCCESS]: getLastestCollectionSuccess
+});
+
 
 // export const putProductsReducerByIdAccion = (id, marca, descripcion) => async (dispatch, getState) => {
 //   try {

@@ -2,7 +2,6 @@ import React, {Fragment} from 'react';
 import Carousel from "react-elastic-carousel";
 import { Card, Image } from 'react-bootstrap';
 import './styles/SliderMult.scss';
-// import RopaImg from '../img/img-portafolio/01-small.jpg';
 
 const SliderMult = (props) => {
 

@@ -7,7 +7,7 @@ import './styles/ListClothes.scss';
 
 const ListClothes = (props) => {
 
-  console.log(props);
+  // console.log(props);
   const [page,setPage] = useState(1);
   let scroll = Scroll.animateScroll;
 

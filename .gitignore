@@ -24,3 +24,5 @@ yarn-error.log*
 
 .eslintcache
 master_data.js
+
+.env

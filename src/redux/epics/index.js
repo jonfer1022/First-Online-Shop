@@ -1,6 +1,8 @@
 import { combineEpics } from "redux-observable";
-import products from "./products"
+import home from "./home";
+import products from "./products";
 
 export default combineEpics(
+  home,
   products
 )

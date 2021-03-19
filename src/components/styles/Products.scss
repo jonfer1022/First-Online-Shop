@@ -8,6 +8,7 @@
     height: 100%;
     width: 20%;
     vertical-align: top;
+    padding-top: 25px;
 }
 
 .products-list{
@@ -15,19 +16,13 @@
     width: 80%;
 }
 
-.ordenar{
-    height: 100px;
-}
-
 .ordenar .form-group{
-    position: relative;
-    top: 25px;
-    margin-left: 2%;
+    margin-left: 3%;
     margin-top: 2%;
 }
 
 .talla{
-    padding: 2%;
+    padding: 0 2% 2% 3%;
 }
 
 .talla .colm-1{
@@ -48,4 +43,56 @@
 
 .slider-rango{
     margin-left: 5%;
+}
+
+.talla .PrivateSwitchBase-root-1 {
+    padding: 4px !important;
+}
+
+.talla label{
+    margin-bottom: 0%;
+}
+
+.genero{
+    margin-left: 3%;
+}
+
+.genero .genero label{
+    margin-bottom: 0;
+}
+
+.genero-check{
+    text-align: center;
+}
+
+.genero .PrivateSwitchBase-root-1 {
+    padding: 4px !important;
+}
+
+.genero .MuiFormControlLabel-root {
+    margin-left: 0;
+}
+
+.categories{
+    margin-left: 3%;
+}
+
+.categories .colm-1{
+    display: inline-block;
+    width: 50%;
+    padding-left: 5%;
+}
+
+.categories .colm-2{
+    display: inline-block;
+    width: 50%;
+    padding-left: 3%;
+}
+
+.categories .genero label{
+    margin-bottom: 0;
+}
+
+.categories .PrivateSwitchBase-root-1 {
+    padding: 4px !important;
 }
