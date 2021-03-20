@@ -2,12 +2,12 @@ import React, {Fragment, useState} from 'react';
 import { Card, Image } from 'react-bootstrap';
 import Pagination from '@material-ui/lab/Pagination';
 import Scroll from 'react-scroll';
-import RopaImg from '../img/img-portafolio/Ropa1.jpg';
 import './styles/ListClothes.scss';
 
 const ListClothes = (props) => {
 
   // console.log(props);
+  let img = "https://raw.githubusercontent.com/jonfer1022/First-Online-Shop/main/src/img/img-portafolio/Ropa2.jpg";
   const [page,setPage] = useState(1);
   let scroll = Scroll.animateScroll;
 
@@ -36,7 +36,7 @@ const ListClothes = (props) => {
         >
           <Card.Header>
             <div className="card-title">{props.clothes[i].product_name}</div>
-            <Image src={props.clothes[i].image_path||RopaImg} className="clothes-img" rounded/>
+            <Image src={img||props.clothes[i].image_path} className="clothes-img" rounded/>
           </Card.Header>
           <Card.Footer>
             <div className="card-div-percentage">{props.clothes[i].percentage ? `${props.clothes[i].percentage}%`:null}</div>

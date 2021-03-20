@@ -4,14 +4,22 @@
 }
 
 .divCar{
-    height: 550px;
+    // height: 550px;
     width: 280px;
     margin: 2%;
 }
 
 .divCar > .card{
     width: 100%;
-    height: 260px;
+    // height: 260px;
+}
+
+.divCar .card-div-percentage{
+    color: #20c997;
+    font-weight: bold;
+    font-size: 1.5rem;
+    position: absolute;
+    top: -100%;
 }
 
 .card-header-des{
@@ -21,7 +29,8 @@
 .img-responsive-des{
     // border: solid;
     // color: red;
-    max-width: 100%;
+    // max-width: 100%;
+    width: 100%;
     transform:scale(1);
     -webkit-transform:scale(1); // Safari and Chrome
     transition: all 250ms ease-in-out; // Safari and Chrome
