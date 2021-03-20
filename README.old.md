@@ -24,3 +24,7 @@ npm install rxjs
 <!-- ... -->
 npm i rxjs-compat
 <!-- ... -->
+npm install --save-dev gh-pages
+"homepage": "https://jonfer1022.github.io/First-Online-Shop"
+"predeploy" : "npm run build",
+"deploy": "gh-pages -d build"
