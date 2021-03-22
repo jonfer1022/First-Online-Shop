@@ -14,6 +14,8 @@ let string_sizes = [];
 let priceMin = 1000, priceMax = 10000;
 
 const Products = (props) => {
+  
+  props.action("Products");
 
   const sizes = master_data.clothes_sizes;
   const genders = master_data.clothes_gender;
@@ -21,10 +23,11 @@ const Products = (props) => {
 
   const dispatch = useDispatch();
   const location = useLocation();
+  console.log("location", location);
   const products = useSelector(store => store.products.products || {});
 
-  const [gender, setGender] = useState(location.state.gender);
-  const [category, setCategory] = useState(location.state.category);
+  const [gender, setGender] = useState(location.state.gender||"");
+  const [category, setCategory] = useState(location.state.category||"");
   const [trigger, setTrigger] = useState(false)
   const [sortBy, setSortBy] = useState(0);
   const [price, setPrice] = useState([priceMin, priceMax]);
@@ -47,7 +50,6 @@ const Products = (props) => {
   ])
 
   // console.log(checkGender, gender);
-  props.action("Products");
   const maxItemsByPage = 12;
 
   // UseEffect que funciona solamente cuando se renderiza por primera vez el componente 

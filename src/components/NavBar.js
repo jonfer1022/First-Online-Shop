@@ -8,7 +8,7 @@ import { useHistory } from "react-router-dom";
 import master_data from '../master_data';
 
 const NavBar = (props) => {
-
+  
   var scroll = Scroll.animateScroll;
   const history = useHistory();
   const dispatch = useDispatch();
@@ -21,18 +21,20 @@ const NavBar = (props) => {
   const dresses = master_data.clothes_categories.dresses;
   const shoes = master_data.clothes_categories.shoes;
 
+  let navbarMain = document.getElementById("navbar-main");
+
   function scrollHome() {
     if (window.scrollY > 150 ) {
-      document.getElementById("navbar-main").style.backgroundColor = "rgb(118, 118, 118)";
+      if(navbarMain) navbarMain.style.backgroundColor = "rgb(118, 118, 118)";
     }else{
-      document.getElementById("navbar-main").style.backgroundColor = "rgba(255, 255, 255, 0)";
+      if(navbarMain) navbarMain.style.backgroundColor = "rgba(255, 255, 255, 0)";
     }
   }
 
   function scrollProducts() {
     document.getElementById("navbar-main").style.backgroundColor = "rgb(118, 118, 118)";
   }
-
+  
   // Escucha el evento del movimiento del scroll para cambiar el Style de la navegación dependiento igualmente de la página
   if(props.side === "Home"){
     document.getElementById("navbar-main").style.backgroundColor = "rgba(255, 255, 255, 0)";
