@@ -1,8 +1,8 @@
 {
-  "homepage": "https://jonfer1022.github.io/First-Online-Shop",
   "name": "first-online-shop",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://jonfer1022.github.io/First-Online-Shop/",
   "dependencies": {
     "@material-ui/core": "^4.11.3",
     "@material-ui/lab": "^4.0.0-alpha.57",
@@ -40,7 +40,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy" : "npm run build",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
