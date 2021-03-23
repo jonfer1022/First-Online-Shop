@@ -1,24 +1,24 @@
 {
   "files": {
     "main.css": "/First-Online-Shop/static/css/main.a84470c9.chunk.css",
-    "main.js": "/First-Online-Shop/static/js/main.044dde26.chunk.js",
-    "main.js.map": "/First-Online-Shop/static/js/main.044dde26.chunk.js.map",
+    "main.js": "/First-Online-Shop/static/js/main.f062310a.chunk.js",
+    "main.js.map": "/First-Online-Shop/static/js/main.f062310a.chunk.js.map",
     "runtime-main.js": "/First-Online-Shop/static/js/runtime-main.9a44c7fc.js",
     "runtime-main.js.map": "/First-Online-Shop/static/js/runtime-main.9a44c7fc.js.map",
     "static/css/2.95f25948.chunk.css": "/First-Online-Shop/static/css/2.95f25948.chunk.css",
-    "static/js/2.fafc3ea2.chunk.js": "/First-Online-Shop/static/js/2.fafc3ea2.chunk.js",
-    "static/js/2.fafc3ea2.chunk.js.map": "/First-Online-Shop/static/js/2.fafc3ea2.chunk.js.map",
+    "static/js/2.6b5e0f9e.chunk.js": "/First-Online-Shop/static/js/2.6b5e0f9e.chunk.js",
+    "static/js/2.6b5e0f9e.chunk.js.map": "/First-Online-Shop/static/js/2.6b5e0f9e.chunk.js.map",
     "index.html": "/First-Online-Shop/index.html",
     "static/css/2.95f25948.chunk.css.map": "/First-Online-Shop/static/css/2.95f25948.chunk.css.map",
     "static/css/main.a84470c9.chunk.css.map": "/First-Online-Shop/static/css/main.a84470c9.chunk.css.map",
-    "static/js/2.fafc3ea2.chunk.js.LICENSE.txt": "/First-Online-Shop/static/js/2.fafc3ea2.chunk.js.LICENSE.txt",
+    "static/js/2.6b5e0f9e.chunk.js.LICENSE.txt": "/First-Online-Shop/static/js/2.6b5e0f9e.chunk.js.LICENSE.txt",
     "static/media/Header.scss": "/First-Online-Shop/static/media/pexels-lumn.e4623c6b.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.9a44c7fc.js",
     "static/css/2.95f25948.chunk.css",
-    "static/js/2.fafc3ea2.chunk.js",
+    "static/js/2.6b5e0f9e.chunk.js",
     "static/css/main.a84470c9.chunk.css",
-    "static/js/main.044dde26.chunk.js"
+    "static/js/main.f062310a.chunk.js"
   ]
 }
