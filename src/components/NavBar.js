@@ -44,12 +44,13 @@ const NavBar = (props) => {
     window.addEventListener("scroll", scrollProducts, false);
   }
 
-  const handleSearchPosition = function(elemento, cantidad){
+  const handleSearchPosition = (elemento, cantidad) =>{
     let element = document.getElementById(elemento);
-    scroll.scrollTo(element.offsetTop - cantidad);
+    if(element) scroll.scrollTo(element.offsetTop - cantidad);
   }
 
   const openProductsWith = (gender = "", category = "") => {
+    scroll.scrollTo(0); //Posiciona el scroll al comienzo de la página
     history.push({pathname: "/products", state:{
         gender,
         category,
@@ -60,37 +61,43 @@ const NavBar = (props) => {
   return(
   <div id="nav-bar">
     <Navbar id="navbar-main" collapseOnSelect className="nav-bar-main" expand="lg">
-      <Navbar.Brand href="#" onClick={() => handleSearchPosition("header",0)}><h5>Samplhes</h5></Navbar.Brand>
+      <Navbar.Brand style={{cursor: 'pointer'}} 
+      onClick={() => {
+        if(props.side === master_data.sides.home) handleSearchPosition("header",0) 
+        else { scroll.scrollTo(0); dispatch(push("/home"))}
+        }} >
+        <h5>Samplhes</h5>
+      </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="mr-auto">
-              <Nav.Link onClick={() => handleSearchPosition("categories",80)}><h6>Categorias</h6></Nav.Link>
-              <Nav.Link onClick={() => handleSearchPosition("discounts",400)}><h6>Descuentos</h6></Nav.Link>
-              { props.side === master_data.sides.home ?
-                <NavDropdown title="Productos" id="collasible-nav-dropdown">
-                  <NavDropdown className="text-center" drop={'right'} title="Para Hombres">
-                    <NavDropdown.Item onClick={() => openProductsWith(male,sweater)}>Buzos</NavDropdown.Item>
-                    <NavDropdown.Item onClick={() => openProductsWith(male,shirts)}>Camisas</NavDropdown.Item>
-                    <NavDropdown.Item onClick={() => openProductsWith(male,jackets)}>Chaquetas</NavDropdown.Item>
-                    <NavDropdown.Item onClick={() => openProductsWith(male,shoes)}>Zapatos</NavDropdown.Item>
-                  </NavDropdown>
-                  <NavDropdown className="text-center" drop={'right'} title="Para Mujeres">
-                    <NavDropdown.Item onClick={() => openProductsWith(female,sweater)}>Buzos</NavDropdown.Item>
-                    <NavDropdown.Item onClick={() => openProductsWith(female,shirts)}>Camisas</NavDropdown.Item>
-                    <NavDropdown.Item onClick={() => openProductsWith(female,dresses)}>Vestidos</NavDropdown.Item>
-                    <NavDropdown.Item onClick={() => openProductsWith(female,shoes)}>Zapatos</NavDropdown.Item>
-                  </NavDropdown>
-                  <NavDropdown.Divider />
-                    <NavDropdown.Item onClick={() => openProductsWith()}>Portafolio completo</NavDropdown.Item>
+          { props.side === master_data.sides.home ?
+          <Nav className="mr-auto">
+            <Nav.Link onClick={() => handleSearchPosition("categories",80)}><h6>Categorias</h6></Nav.Link>
+            <Nav.Link onClick={() => handleSearchPosition("discounts",400)}><h6>Descuentos</h6></Nav.Link>
+              <NavDropdown title="Productos" id="collasible-nav-dropdown">
+                <NavDropdown className="text-center" drop={'right'} title="Para Hombres">
+                  <NavDropdown.Item onClick={() => openProductsWith(male,sweater)}>Buzos</NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => openProductsWith(male,shirts)}>Camisas</NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => openProductsWith(male,jackets)}>Chaquetas</NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => openProductsWith(male,shoes)}>Zapatos</NavDropdown.Item>
                 </NavDropdown>
-              : null }
-            </Nav>
-            <Nav>
-              <Nav.Link ><h6>Contactanos</h6></Nav.Link>
-              <Nav.Link onClick = {() => dispatch(push("/home"))}>
-                <h6>Mi App</h6>
-              </Nav.Link>
-            </Nav>
+                <NavDropdown className="text-center" drop={'right'} title="Para Mujeres">
+                  <NavDropdown.Item onClick={() => openProductsWith(female,sweater)}>Buzos</NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => openProductsWith(female,shirts)}>Camisas</NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => openProductsWith(female,dresses)}>Vestidos</NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => openProductsWith(female,shoes)}>Zapatos</NavDropdown.Item>
+                </NavDropdown>
+                <NavDropdown.Divider />
+                  <NavDropdown.Item onClick={() => openProductsWith()}>Portafolio completo</NavDropdown.Item>
+              </NavDropdown>
+          </Nav>
+          : <Nav className="mr-auto"></Nav> }
+          <Nav>
+            <Nav.Link href="#" ><h6>Contactanos</h6></Nav.Link>
+            {/* <Nav.Link onClick = {() => dispatch(push("/home"))}>
+              <h6>Mi App</h6>
+            </Nav.Link> */}
+          </Nav>
         </Navbar.Collapse>
     </Navbar>
   </div>

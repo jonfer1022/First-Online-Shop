@@ -23,7 +23,7 @@ const Products = (props) => {
 
   const dispatch = useDispatch();
   const location = useLocation();
-  console.log("location", location);
+
   const products = useSelector(store => store.products.products || {});
 
   const [gender, setGender] = useState(location.state.gender||"");
@@ -72,7 +72,7 @@ const Products = (props) => {
 
   // Disparador de la acción de los filtros con cada acción que se ejecute
   useEffect(()=>{
-    console.log(sortBy, size, price[0], price[1], gender, category);
+    // console.log(sortBy, size, price[0], price[1], gender, category);
     if(sortBy !== 0 || size !== [] || triggerPrice || triggerGender || triggerCategories){
       dispatch(productsAction.getAllProducts(
         gender,
