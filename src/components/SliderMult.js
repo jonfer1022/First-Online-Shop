@@ -2,10 +2,23 @@ import React, {Fragment} from 'react';
 import Carousel from "react-elastic-carousel";
 import { Card, Image } from 'react-bootstrap';
 import './styles/SliderMult.scss';
+import { useHistory } from "react-router-dom";
+import Scroll from 'react-scroll';
 
 const SliderMult = (props) => {
 
+  var scroll = Scroll.animateScroll;
+  const history = useHistory();
   let img = "https://raw.githubusercontent.com/jonfer1022/First-Online-Shop/main/src/img/img-portafolio/Ropa2.jpg";
+  
+  const openProductsWith = (gender = "", category = "") => {
+    scroll.scrollTo(0); //Posiciona el scroll al comienzo de la página
+    history.push({pathname: "/products", state:{
+      gender,
+      category,
+      }
+    });
+  }
 
   const breakPoints = [
     { width: 1, itemsToShow: 1 },
@@ -24,7 +37,7 @@ const SliderMult = (props) => {
           { discounts[i] ? 
             <Card key={discounts[i].id}>
               <Card.Header className="card-header-des">
-                <a href={"/producto"} >
+                <a onClick={() => openProductsWith()} style={{cursor: 'pointer'}} >
                   <Image src={img||discounts[i].image_path}
                   className="img-responsive-des" rounded/>
                 </a>
@@ -39,7 +52,7 @@ const SliderMult = (props) => {
           { discounts[i+1] ?
             <Card key={discounts[i+1].id}>
               <Card.Header className="card-header-des">
-                <a href={"/producto"} >
+                <a onClick={() => openProductsWith()} style={{cursor: 'pointer'}} >
                   <Image src={img||discounts[i+1].image_path}
                   className="img-responsive-des" rounded/>
                 </a>
