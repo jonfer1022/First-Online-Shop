@@ -1,0 +1,221 @@
+.detail-main{
+  margin-top: 60px;
+  width: 100%;
+}
+
+#detail-images {
+  // border: solid;
+  width: 60%;
+  display: inline-block;
+}
+
+#detail-features {
+  width: 40%;
+  display: inline-block;
+  vertical-align: top;
+  padding-left: 2%;
+}
+
+.img-responsive-carousel{
+  width: 100%;
+}
+
+.img-min{
+  width: 23%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+#detail-images .ewJlEB{
+  display: inline-block;
+  width: 77%;
+}
+
+#detail-images .bkVSTc{
+  justify-content: center;
+}
+
+// Verificar!, afecta en la animación al desplazar de imagen
+// #detail-images .iLquPE{
+//   width: 30px;
+//   height: 30px;
+//   min-width: 30px;
+//   line-height: 32px;
+// }
+
+.img-min > div{
+  padding: 3%;
+  cursor: pointer;
+}
+
+#detail-features .title{
+  font-size: 2.2rem;
+  text-align: center;
+  display: block;
+  margin-top: 2%;
+  // border: solid;
+}
+
+#detail-features .price, #detail-features .discount{
+  display: inline-block;
+  font-size: 1.4rem;
+  width: 40%;
+  margin: 2% 0% 0% 5%;
+  // border: solid;
+}
+
+#detail-features .size{
+  font-size: 1.4rem;
+  width: 50%;
+  margin: 2% 0% 0% 5%;
+  vertical-align: middle;
+}
+
+.size > button{
+  font-size: 1rem;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  border: 0px;
+  background-color: #DCDCDC;
+  margin-left: 3%;
+  font-weight: bold;
+  color: rgb(100, 100, 100);
+}
+
+.size > button:focus{
+  outline: 0px;
+}
+
+#detail-features .amount{
+  margin: 2% 0% 0% 5%;
+}
+
+.amount span{
+  font-size: 1.3rem;
+}
+
+.amount .boton-cant{
+  display: inline-block;
+  margin-left: 2%;
+}
+
+.amount button{
+  font-weight: bold;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  background-color: #DCDCDC;
+  border: 0px;
+}
+
+.amount input{
+  border: 0px solid;
+  width: 30%;
+  text-align: center;
+  font-size: 1.2rem;
+  -webkit-appearance: none;
+}
+
+#detail-features .description{
+  margin-top: 3%;
+}
+
+.description span{
+  font-size: 1.3rem;
+}
+
+.change span{
+  font-size: 1.3rem;
+}
+
+.boton-cant button:focus{
+  outline: 0px;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+/* Css botón agregar al carrito */
+$color: rgb(34, 233, 16);
+
+.isDisabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  vertical-align: middle;
+  display: inline-block;
+  padding: .75rem 1.25rem;
+  border-radius: 10rem;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: .15rem;
+  transition: all .3s;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  z-index: 1;
+  background-color: $color;
+  &:hover {
+    color: #fff;
+    text-decoration: none;
+    &:before {
+      width: 100%;
+    }
+  }
+}
+
+.button{
+  text-align: center;
+  margin-bottom: 1%;
+}
+
+.button-buy{
+  vertical-align: middle;
+  display: inline-block;
+  padding: .75rem 1.25rem;
+  border-radius: 10rem;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: .15rem;
+  transition: all .3s;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  cursor: pointer;
+  z-index: 1;
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $color;
+    border-radius: 10rem;
+    z-index: -2;
+  }
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: darken($color, 15%);
+    transition: all .3s;
+    border-radius: 10rem;
+    z-index: -1;
+  }
+  &:hover {
+    color: #fff;
+    text-decoration: none;
+    &:before {
+      width: 100%;
+    }
+  }
+}

@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import { routerMiddleware } from 'connected-react-router';
 import { createBrowserHistory } from 'history';
 import { createEpicMiddleware } from 'redux-observable';
-import rootReducer from "../redux/ducks"
+import rootReducer from "../redux/reducer"
 import epics from "../redux/epics";
 
 export const history = createBrowserHistory();

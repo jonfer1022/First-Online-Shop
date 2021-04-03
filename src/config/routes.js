@@ -3,7 +3,7 @@ const domain = {
   remote: "https://firts-online-shop-backend.herokuapp.com"
 }
 
-const url = domain.remote;
+const url = domain.local;
 
 const routes = {
   endpoints: {
@@ -22,6 +22,10 @@ const routes = {
     getAllProducts:{
       method: "get",
       url: `${url}/products/allProducts`
+    },
+    getProductById:{
+      method: "get",
+      url: `${url}/products/getProductById`
     }
   }
 }

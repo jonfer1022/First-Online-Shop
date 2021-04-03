@@ -11,12 +11,9 @@ const SliderMult = (props) => {
   const history = useHistory();
   let img = "https://raw.githubusercontent.com/jonfer1022/First-Online-Shop/main/src/img/img-portafolio/Ropa2.jpg";
   
-  const openProductsWith = (gender = "", category = "") => {
+  const openSpecificProduct = (product_id, i) => {
     scroll.scrollTo(0); //Posiciona el scroll al comienzo de la página
-    history.push({pathname: "/products", state:{
-      gender,
-      category,
-      }
+    history.push({pathname: "/clothing-detail", data:{ product_id }
     });
   }
 
@@ -28,16 +25,15 @@ const SliderMult = (props) => {
   ];
 
   const getItems = (discounts) => {
-
     let variable = [discounts.length]
-
+    
     for (let i = 0; i < discounts.length; i++) {
       variable[i] =  (
         <div className="divCar">
           { discounts[i] ? 
             <Card key={discounts[i].id}>
               <Card.Header className="card-header-des">
-                <a onClick={() => openProductsWith()} style={{cursor: 'pointer'}} >
+                <a onClick={() => openSpecificProduct(discounts[i-1].id_clothes)} style={{cursor: 'pointer'}} >
                   <Image src={img||discounts[i].image_path}
                   className="img-responsive-des" rounded/>
                 </a>
@@ -52,7 +48,7 @@ const SliderMult = (props) => {
           { discounts[i+1] ?
             <Card key={discounts[i+1].id}>
               <Card.Header className="card-header-des">
-                <a onClick={() => openProductsWith()} style={{cursor: 'pointer'}} >
+                <a onClick={() => openSpecificProduct(discounts[i].id_clothes)} style={{cursor: 'pointer'}} >
                   <Image src={img||discounts[i+1].image_path}
                   className="img-responsive-des" rounded/>
                 </a>

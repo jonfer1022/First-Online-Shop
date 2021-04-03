@@ -5,7 +5,7 @@ import Contact from './Contact';
 import Slider from './Slider';
 import SliderMult from './SliderMult';
 import { useDispatch , useSelector } from 'react-redux';
-import homeAction from '../redux/ducks/home.Ducks';
+import homeAction from '../redux/reducer/home.reducer';
 
 const Home = (props) => {
 

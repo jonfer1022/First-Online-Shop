@@ -1,10 +1,10 @@
 import { combineEpics, ofType } from "redux-observable";
-import homeAction from '../ducks/home.Ducks';
+import homeAction from '../reducer/home.reducer';
 import { catchError, flatMap, mergeMap } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { Observable } from "rxjs-compat"
 import axios from 'axios';
-import routes from '../../routes/routes';
+import routes from '../../config/routes';
 
 export const getCategories = ($action) =>
   $action.pipe(
