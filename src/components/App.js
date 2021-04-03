@@ -3,10 +3,11 @@ import { Route, Switch, Redirect, /*BrowserRouter*/ } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import generateStore, { history } from '../redux/store';
 import { ConnectedRouter } from 'connected-react-router';
-import Footer from './Footer';
-import Products from './Products';
-import { Layout } from './Layout';
 import Home from './Home';
+import Products from './Products';
+import ClothingDetail from './ClothingDetail';
+import Footer from './Footer';
+import { Layout } from './Layout';
 import Header from './Header';
 import NavBar from './NavBar';
 import './styles/body.scss';
@@ -26,16 +27,17 @@ function App() {
             {side === "Home" ? <Header id="header"/> : null}
           </header>
           <body>
-              <Layout>
-                {/* <BrowserRouter> */}
-                  <Switch>
-                    <Route exact path ="/home" children={<Home action={lugar}/>} />
-                    <Route path ='/products' children={<Products action={lugar} />}/>              
-                    <Redirect from="/" to="/home" />
-                    {/* <Route component={NotFound}/> */}
-                  </Switch>
-                {/* </BrowserRouter> */}
-              </Layout>
+            <Layout>
+              {/* <BrowserRouter> */}
+                <Switch>
+                  <Route exact path ="/home" children={<Home action={lugar}/>} />
+                  <Route path ='/products' children={<Products action={lugar} />}/>
+                  <Route path ='/clothing-detail' children={<ClothingDetail action={lugar} />}/>              
+                  <Redirect from="/" to="/home" />
+                  {/* <Route component={NotFound}/> */}
+                </Switch>
+              {/* </BrowserRouter> */}
+            </Layout>
             <Footer />
           </body>
         </ConnectedRouter>

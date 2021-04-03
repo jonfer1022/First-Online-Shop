@@ -6,7 +6,7 @@ import { Form } from 'react-bootstrap';
 import Slider from '@material-ui/core/Slider';
 import { useDispatch , useSelector } from 'react-redux';
 import { useLocation } from "react-router-dom";
-import productsAction from '../redux/ducks/products.Ducks';
+import productsAction from '../redux/reducer/products.reducer';
 import master_data from '../master_data';
 import { Checkbox, FormControlLabel } from '@material-ui/core';
 
@@ -129,7 +129,6 @@ const Products = (props) => {
 
   // Handler que cambia cambia la busqueda por alguno de los generos o los dos cuando se deshabilitan los checkbox
   const checkCategoriesFilter = (valueCheck, categoria) =>{
-    console.log(valueCheck, categoria);
     if(valueCheck && (categoria === categories.jackets)){
       setCheckCategories([true, false, false, false, false]);
       setCategory(categories.jackets);

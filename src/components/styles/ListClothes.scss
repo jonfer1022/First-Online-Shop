@@ -47,3 +47,24 @@
     position: absolute;
     top: -40%;
 }
+
+.img-list-clothes{
+    // border: solid;
+    // color: red;
+    // max-width: 100%;
+    cursor: pointer;
+    width: 100%;
+    transform:scale(1);
+    -webkit-transform:scale(1); // Safari and Chrome
+    transition: all 250ms ease-in-out; // Safari and Chrome
+    &:hover{
+        transform:scale(0.96);
+        -ms-transform:scale(0.96); // IE 9 
+        -moz-transform:scale(0.96); // Firefox 
+        -webkit-transform:scale(0.96); // Safari and Chrome 
+        -o-transform:scale(0.96); // Opera
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+    }
+}

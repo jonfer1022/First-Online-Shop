@@ -9,12 +9,9 @@ const CardClothes = (data) =>{
     var scroll = Scroll.animateScroll;
     const history = useHistory();
 
-    const openProductsWith = (gender = "", category = "") => {
+    const openSpecificProduct = (product_id) => {
         scroll.scrollTo(0); //Posiciona el scroll al comienzo de la página
-        history.push({pathname: "/products", state:{
-            gender,
-            category,
-            }
+        history.push({pathname: "/clothing-detail", data:{ product_id }
         });
     }
 
@@ -26,7 +23,7 @@ const CardClothes = (data) =>{
             key={product.id}   //id de cada Card 
             border="light">
                 <Card.Header className="textTitle">{product.product_name}</Card.Header>
-                <a onClick={() => openProductsWith()} style={{cursor: 'pointer'}} >
+                <a onClick={() => openSpecificProduct(product.id)} style={{cursor: 'pointer'}} >
                     <Image src={product.image_path}
                     className="img-responsive" rounded/>
                 </a>
