@@ -77,7 +77,8 @@ const ClothingDetail = (props) => {
             : <div>¡Data aún no disponible!</div>
           }
           { product?.length > 0 ? 
-            <Carousel 
+            <Carousel
+              className="carousel" 
               ref={carouselRef} 
               onChange={(item,page) => setSelectImg(item.index)}
             >
