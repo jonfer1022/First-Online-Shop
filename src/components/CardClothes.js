@@ -1,18 +1,21 @@
 import React, { Fragment } from 'react';
 import { Card, Image } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
 import './styles/CardClothes.scss';
-import { useHistory } from "react-router-dom";
 import Scroll from 'react-scroll';
+import productsAction from '../redux/reducer/products.reducer';
+// import { useHistory } from "react-router-dom";
 
 const CardClothes = (data) =>{
     
     var scroll = Scroll.animateScroll;
-    const history = useHistory();
+    // const history = useHistory();
+    const dispatch = useDispatch();
 
     const openSpecificProduct = (product_id) => {
         scroll.scrollTo(0); //Posiciona el scroll al comienzo de la página
-        history.push({pathname: "/clothing-detail", data:{ product_id }
-        });
+        // history.push({pathname: "/clothing-detail", data:{ product_id }});
+        dispatch(productsAction.saveProductId(product_id));       
     }
 
     // Mapeamos el arreglo data que contiene los productos y crea un Card por cada producto.

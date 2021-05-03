@@ -1,9 +1,4 @@
-const domain = {
-  local: "http://localhost:3001",
-  remote: "https://firts-online-shop-backend.herokuapp.com"
-}
-
-const url = domain.remote;
+const url = process.env.REACT_APP_DOMAIN_BACKEND || "http://localhost:3001";
 
 const routes = {
   endpoints: {

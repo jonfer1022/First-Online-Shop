@@ -5,7 +5,7 @@ import { throwError } from 'rxjs';
 import { Observable } from "rxjs-compat"
 import axios from 'axios';
 import routes from '../../config/routes';
-// import { push } from "connected-react-router";
+import { push } from "connected-react-router";
 
 const endpoint = routes.endpoints;
 
@@ -35,9 +35,9 @@ export const getProductById = ($action) =>
   $action.pipe(
     ofType("GET_PRODUCT_BY_ID"),
     flatMap(({product_id}) =>{
-      return Observable.from(axios.get(
-        `${endpoint.getProductById.url}?product_id=${product_id}`
-        ))
+      return Observable.from(
+        axios.get(`${endpoint.getProductById.url}?product_id=${product_id}`)
+        )
       .pipe(
       flatMap((res)=>{
         return Observable.concat(
@@ -52,7 +52,31 @@ export const getProductById = ($action) =>
   })
 )
 
+export const saveProductId = ($action) =>
+  $action.pipe(
+    ofType("SAVE_PRODUCT_ID"),
+    flatMap(({product_id, size_id}) => {
+      return Observable.of(
+        productsAction.saveProductIdSuccess(product_id),
+        push("/clothing-detail", {product_id, size_id})
+      )
+  })
+)
+
+export const saveCategoryAndGender = ($action) =>
+  $action.pipe(
+    ofType("SAVE_CATEGORY_AND_GENDER"),
+    flatMap(({category, gender}) => {
+      return Observable.of(
+        productsAction.saveCategoryAndGenderSuccess({category, gender}),
+        push("/products", {category, gender})
+      )
+  })
+)
+
 export default combineEpics(
   getAllProducts,
-  getProductById
+  getProductById,
+  saveProductId,
+  saveCategoryAndGender
 );

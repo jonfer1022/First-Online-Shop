@@ -2,12 +2,15 @@ import React, {Fragment, useState} from 'react';
 import { Card, Image } from 'react-bootstrap';
 import Pagination from '@material-ui/lab/Pagination';
 import Scroll from 'react-scroll';
-import { useHistory } from "react-router-dom";
+import { useDispatch } from 'react-redux';
+import productsAction from '../redux/reducer/products.reducer';
 import './styles/ListClothes.scss';
+// import { useHistory } from "react-router-dom";
 
 const ListClothes = (props) => {
 
-  const history = useHistory();
+  // const history = useHistory();
+  const dispatch = useDispatch();
   const [page,setPage] = useState(1);
   let scroll = Scroll.animateScroll;
 
@@ -23,8 +26,8 @@ const ListClothes = (props) => {
 
   const openSpecificProduct = (product_id, size_id) => {
     scroll.scrollTo(0); //Posiciona el scroll al comienzo de la página
-    history.push({pathname: "/clothing-detail", data:{ product_id, size_id }
-    });
+    dispatch(productsAction.saveProductId(product_id, size_id));
+    // history.push({pathname: "/clothing-detail", data:{ product_id, size_id }});
   }
 
   let index = (page-1)*props.amountItems||0;  //Número inicio de la iteración del for dependiendo del valor "page"

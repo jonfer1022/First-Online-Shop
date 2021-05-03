@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useLayoutEffect } from 'react';
 import Portafolio from './Portafolio';
 import SectionTitle from './SectionTitle';
 import Contact from './Contact';
@@ -19,7 +19,7 @@ const Home = (props) => {
   const lastestCollection = useSelector(store => store.home.lastestCollection);
   const amount = 10;
 
-  useEffect( ()=>{
+  useLayoutEffect( ()=>{
     dispatch(homeAction.getCategories());
     dispatch(homeAction.getDiscountsClothes());
     dispatch(homeAction.getLastestCollection(amount));

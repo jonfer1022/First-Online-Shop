@@ -1,20 +1,24 @@
-import React, {Fragment} from 'react';
+import React, { Fragment } from 'react';
+import { useDispatch } from 'react-redux';
 import Carousel from "react-elastic-carousel";
 import { Card, Image } from 'react-bootstrap';
 import './styles/SliderMult.scss';
-import { useHistory } from "react-router-dom";
 import Scroll from 'react-scroll';
+import productsAction from '../redux/reducer/products.reducer';
+// import { useHistory } from "react-router-dom";
 
 const SliderMult = (props) => {
 
   var scroll = Scroll.animateScroll;
-  const history = useHistory();
+  // const history = useHistory();
+
+  const dispatch = useDispatch();
   let img = "https://raw.githubusercontent.com/jonfer1022/First-Online-Shop/main/src/img/img-portafolio/Ropa2.jpg";
   
   const openSpecificProduct = (product_id, i) => {
     scroll.scrollTo(0); //Posiciona el scroll al comienzo de la página
-    history.push({pathname: "/clothing-detail", data:{ product_id }
-    });
+    dispatch(productsAction.saveProductId(product_id));
+    // history.push({pathname: "/clothing-detail", data:{ product_id }
   }
 
   const breakPoints = [

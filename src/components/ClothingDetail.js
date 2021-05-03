@@ -1,5 +1,5 @@
 import './styles/ClothingDetail.scss';
-import React, {Fragment, useEffect, useState, useRef} from 'react';
+import React, {Fragment, useState, useRef, useLayoutEffect, useEffect} from 'react';
 import Carousel from "react-elastic-carousel";
 import { Image, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import productsAction from '../redux/reducer/products.reducer';
@@ -15,13 +15,14 @@ const ClothingDetail = (props) => {
   const product = useSelector(store => store.products.infoProduct || {});
   const carouselRef = useRef(null);
   const [amount, setAmount] = useState(1);
-  const [product_id] = useState(location.data.product_id ? location.data.product_id : 0);
+  const product_id = useSelector(store => store.products.product_id ? store.products.product_id : location.state.product_id);
   const [selectImg, setSelectImg] = useState(0);
-  const [size, setSize] = useState(location.data.size_id ? location.data.size_id : 0);
-  let sizes_arr = [], id_sizes_arr = [];
+  const [size, setSize] = useState(location.state.size_id ? location.state.size_id : 0);
+  let sizes_arr = [], id_sizes_arr = [];  
+  let buttonSize = []
   
-  // UseEffect que funciona solamente cuando se renderiza por primera vez el componente 
-  useEffect( ()=>{
+  // UseLayoutEffect que funciona antes de del renderizado del componente
+  useLayoutEffect( ()=>{
     dispatch(productsAction.getProductById(product_id));
   },[dispatch]);
 
@@ -43,20 +44,22 @@ const ClothingDetail = (props) => {
     } 
   };
 
-  let buttonSize = id_sizes_arr.map( reg => document.getElementById(`buttonSize${reg}`));
-
-  if(buttonSize[0]) {
-    for (let i = 0; i < id_sizes_arr.length; i++) {
-      if(id_sizes_arr[i] === size) {
-        buttonSize[i].style.backgroundColor = "#18a10b"; 
-        buttonSize[i].style.color = "white"; 
+  //effect usado para escoger el tamaño del producto escogido.
+  useEffect(() =>{
+    buttonSize = id_sizes_arr.map( reg => document.getElementById(`buttonSize${reg}`));
+    if(buttonSize.length ? buttonSize[0]: false) {
+      for (let i = 0; i < id_sizes_arr.length; i++) {
+        if(id_sizes_arr[i] === size) {
+          buttonSize[i].style.backgroundColor = "#18a10b"; 
+          buttonSize[i].style.color = "white"; 
+        }
+        else {
+          buttonSize[i].style.backgroundColor = "#DCDCDC"; 
+          buttonSize[i].style.color = "rgb(100, 100, 100)"; 
+        }
       }
-      else {
-        buttonSize[i].style.backgroundColor = "#DCDCDC"; 
-        buttonSize[i].style.color = "rgb(100, 100, 100)"; 
-      }
-    }
-  };
+    };
+  },[product, size])
 
   return(
     <Fragment>
