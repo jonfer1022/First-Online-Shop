@@ -1,101 +1,23 @@
-# Getting Started with Create React App
+# Repositorio tienda online "Samplhes" [Capa Front-end]
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+El objetivo principal de este repositorio es crear una tienda online de ropa usando como tecnología principal React Js, además de practicar el conocimiento adquirido a traves de la experiencia laboral y los cursos que he tomado acerca de este framework, como también seguir afianzando las habilidades que poseo en Html, Css y Javascript.
 
-## Available Scripts
+Como mencione anteriormente el ideal del proyecto es realizar una simulación del comportamiento de una tienda online sencilla de ropa, donde en este momento aún se encuentra en construcción y la cual hasta la fecha se plantea seguir implementando nuevas funcionalidades a este proyecto. No obstante, dejo disponible el enlace para poder interactuar con la página que se encuentra desplegada en el ambiente brindado por github pages, para ello de click [¡AQUÍ!](http://https://jonfer1022.github.io/First-Online-Shop "¡AQUÍ!")
 
-In the project directory, you can run:
+[<img src="https://raw.githubusercontent.com/jonfer1022/portfolio/main/src/images/samplhes.jpg">](https://jonfer1022.github.io/First-Online-Shop)
 
-### `npm start`
+Ahora, cabe mencionar que el desarrollo de este proyecto se realizo con el fin de que esta aplicación sea la capa Front-end en la cual los usuarios puedan interactuar, y por consiguiente esta realizará peticiones de data a una capa Back-end que de la misma manera se encuentra disponible en otro de los proyectos de mi repositorio y donde puede ingresar dando click [¡AQUÍ!](http://https://github.com/jonfer1022/first-online-shop-backend "¡AQUÍ!")
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Implementación
+Como ya se sabe la tecnología principal en la cual se desarrolla el proyecto es React Js, sin embargo de acuerdo a la necesidad se fueron instalando e implementado más librerías o "dependencias" para el desarrollo de la tienda online. A continuación nombraremos algunas de estas librerías:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- React Js
+- Node Sass
+- React Redux
+- Axios
+- React Bootstrap
+- Material UI
+- React Router Dom
+- Redux Observable
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-# First-Online-Shop
-Desarrollo de una primer tienda online con el fin de adquirir conocimiento en varias librerías, funciones, métodos, y practica en el uso de lenguaje Js, Html y Css
-
-Recuerde, comenzamos con la instalación de la siguiente manera:
-create-react-app first-online-shop
-npm install react-bootstrap <!-- to use bootstrap
-npm install react-router-dom
-npm install node-sass <!-- to use files scss. npm install node-sass@4.14.1 this versión is more compatible -->
-npm i redux react-redux
-npm i @material-ui/core @metarial-ui/icons <!-- npm i @material-ui/core @metarial-ui/icons -->
-npm i @material-ui/lab
-npm install --save react-elastic-carousel <!-- It's necessary to use carousel -->
-npm install --save styled-components <!-- It's necessary to use react elastic carousel for styling -->
-npm install react-scroll  <!-- It's necessary for moving between sections -->
-<!-- Uso librerías REDUX -->
-npm i redux react-redux redux-devtools redux-thunk axios
-<!-- redux-thunk sirve para majenar promesas (idea global) -->
-<!-- axios que usado para realizar peticiones HTTP y api rest  -->
-npm i reduxsauce
-<!-- Usado para simplificar los reducer y unir los reduce con las acciones -->
-npm install --save redux-observable
-<!-- ... -->
-npm install rxjs
-<!-- ... -->
-npm i rxjs-compat
-<!-- ... -->
-npm install --save-dev gh-pages
-"homepage": "https://jonfer1022.github.io/First-Online-Shop"
-"predeploy" : "npm run build",
-"deploy": "gh-pages -d build"
+De estas librerías o "dependencias" que de cierta manera son importantes para el desarrollo cabe resaltar que "Axios" es la que implementa la conexión y por donde se realizan las peticiones a la capa back-end del proyecto apuntando a una variable de entorno configurada.
