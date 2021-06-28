@@ -1,18 +1,27 @@
-import React from 'react';
+import React, {Fragment, useState, useRef, useLayoutEffect, useEffect} from 'react';
 import {Nav, Navbar, NavDropdown} from "react-bootstrap";
 import Scroll from 'react-scroll';
 import './styles/NavBar.scss';
-import { useDispatch } from 'react-redux';
+import { useDispatch , useSelector } from 'react-redux';
 import { push } from "connected-react-router";
 import { useHistory } from "react-router-dom";
 import master_data from '../master_data';
+import { mdiCartArrowDown } from '@mdi/js';
+import Icon from '@mdi/react';
+import productsAction from '../redux/reducer/products.reducer';
 
 const NavBar = (props) => {
   
   var scroll = Scroll.animateScroll;
   const history = useHistory();
   const dispatch = useDispatch();
-  
+
+  useLayoutEffect( ()=>{
+    dispatch(productsAction.getAddedProduct());
+  },[dispatch, props.add]);
+
+  const total_added_products = useSelector(store => store.products.total_added_products || 0);
+
   const female = master_data.clothes_gender.female;
   const male = master_data.clothes_gender.male;
   const jackets = master_data.clothes_categories.jackets;
@@ -57,7 +66,7 @@ const NavBar = (props) => {
       }
     })
   }
-
+  
   return(
   <div id="nav-bar">
     <Navbar id="navbar-main" collapseOnSelect className="nav-bar-main" expand="lg">
@@ -93,6 +102,19 @@ const NavBar = (props) => {
           </Nav>
           : <Nav className="mr-auto"></Nav> }
           <Nav>
+            <Nav.Link href="/view-shopping-car" disabled = { !(total_added_products > 0) }>
+              <div className="shopping-div">
+                <span>{total_added_products}</span>
+                <Icon path={ mdiCartArrowDown }
+                  title="shopping_car"
+                  size={1.1}
+                  horizontal
+                  vertical
+                  rotate={180}
+                  color="white"
+                />
+              </div>
+            </Nav.Link> 
             <Nav.Link href="#" ><h6>Contactanos</h6></Nav.Link>
             {/* <Nav.Link onClick = {() => dispatch(push("/home"))}>
               <h6>Mi App</h6>

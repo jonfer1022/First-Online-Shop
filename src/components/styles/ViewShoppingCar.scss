@@ -1,0 +1,121 @@
+.view-car-main{
+  margin-top: 60px;
+  width: 100%;
+  h5{
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bolder;
+  }
+}
+
+.view-car-detail-main{
+  display: inline-block;
+  width: 70%;
+}
+
+.view-car-detail{
+  border: gray 1px solid;
+  border-radius: 9px;
+  display: inline-block;
+  padding: 0.5%;
+  margin: 0 0 0.5% 1%;
+}
+
+.view-car-detail {
+  // border: solid;
+  div {
+  display: inline-block;
+  }
+}
+
+.view-car-image{
+  width: 20%;
+
+  img {
+    width: 100%;
+    margin: 1%;
+  }
+}
+
+.view-car-text{
+  width: 20%;
+  vertical-align: top;
+  padding: 1.5%;
+  span {
+    font-size: 1.1rem;
+    font-weight: bold;
+    display: block;
+  }
+}
+
+.view-car-table {
+  padding: 1.5%;
+  width: 60%;
+  vertical-align: top;
+  div {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  .header {
+    width: 100%;
+    div{
+      font-weight: bold;
+    }
+  }
+  .body {
+    width: 100%;
+  }
+  .x_small, .small, .middle, .large, .x_large {
+    width: 100%;  
+    svg{
+      cursor: pointer;
+    }
+  }
+  .size, .price, .amount, .subtotal, .actions{
+    width: 20%;
+  }
+}
+
+.view-car-total{
+  border: gray 2px solid;
+  border-radius: 9px;
+  margin: 0 1% 0% 1%;
+  padding: 1%;
+  display: inline-block;
+  width: 28%;
+  vertical-align: top;
+  position: sticky;
+  top: 10%;
+  .titles, .result{
+    font-size: 1.1rem;
+    display: inline-block;
+  }
+  .titles{
+    width: 60%;
+    font-weight: bold;
+  }
+  .result{
+    text-align: center;
+    width: 40%;
+    vertical-align: top;
+  }
+  span{
+    display: block;
+  }
+  .free{
+    // border: solid;
+    font-weight: bold;
+    color: white;
+    background-color: #5a31be;
+    width: 100%;
+    text-align: center;
+    margin: 2% 0;
+    border-radius: 7px;
+    padding: 1%;
+  }
+  .button-buy{
+    width: 100%;
+    font-size: 1rem;
+  }
+}
+

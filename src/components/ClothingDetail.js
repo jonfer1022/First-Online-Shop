@@ -5,6 +5,7 @@ import { Image, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import productsAction from '../redux/reducer/products.reducer';
 import { useDispatch , useSelector } from 'react-redux';
 import { useLocation } from "react-router-dom";
+import Alert from './Alert';
 
 const ClothingDetail = (props) => {
   
@@ -12,11 +13,16 @@ const ClothingDetail = (props) => {
   
   const dispatch = useDispatch();
   const location = useLocation();
+  
   const product = useSelector(store => store.products.infoProduct || {});
-  const carouselRef = useRef(null);
-  const [amount, setAmount] = useState(1);
+  const message = useSelector(store => store.products.message || "");
   const product_id = useSelector(store => store.products.product_id ? store.products.product_id : location.state.product_id);
+
+  const carouselRef = useRef(null);
+  const [showAlert, setShowAlert] = useState(false);
+  
   const [selectImg, setSelectImg] = useState(0);
+  const [amount, setAmount] = useState(1);
   const [size, setSize] = useState(location.state.size_id ? location.state.size_id : 0);
   let sizes_arr = [], id_sizes_arr = [];  
   let buttonSize = []
@@ -44,7 +50,7 @@ const ClothingDetail = (props) => {
     } 
   };
 
-  //effect usado para escoger el tamaño del producto escogido.
+  //effect usado para escoger el tamaño del producto seleccionado.
   useEffect(() =>{
     buttonSize = id_sizes_arr.map( reg => document.getElementById(`buttonSize${reg}`));
     if(buttonSize.length ? buttonSize[0]: false) {
@@ -59,11 +65,29 @@ const ClothingDetail = (props) => {
         }
       }
     };
-  },[product, size])
+  },[product, size]);
+
+  //Función que añade el producto al carro de compras
+  const addProduct = (product_id, amount, size_product) =>{
+    dispatch(productsAction.addProductById(product_id, amount, size_product));
+    setShowAlert(true);
+  }
+
+  // Limpiar mensaje
+  if(showAlert && message?.length){
+    setTimeout(function(){ 
+      setShowAlert(false);
+      dispatch(productsAction.eraseInfo()); 
+    }, 3500);
+  }
 
   return(
     <Fragment>
       <div className="detail-main">
+      <Alert 
+        show = {showAlert && message?.length}
+        message = {message} 
+      />
         <div id="detail-images">
           { product?.length > 0 ? 
             <div className="img-min">
@@ -126,7 +150,7 @@ const ClothingDetail = (props) => {
                 delay={{ show: 100, hide: 300 }}
                 overlay={ size === 0 ? <Tooltip>¡No olvides seleccionar una talla!</Tooltip> : <div></div>}
               >
-                <a className={size === 0 ? "isDisabled": "button-buy"}>Agregar al carrito</a>
+                <a className={size === 0 ? "isDisabled": "button-buy"} onClick = {() => addProduct(product_id, amount, size)}>Agregar al carrito</a>
               </OverlayTrigger>
             </div>
             <div className="change">

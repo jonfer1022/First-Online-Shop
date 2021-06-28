@@ -1,0 +1,47 @@
+#alert-main-success{
+  padding: 0.8%;
+  width: 45%;
+  border-radius: 8px;
+  position: fixed;
+  top: 12%;
+  right: -50%;
+  z-index: 10;
+  opacity: 0;
+  background-color: rgb(140, 201, 150);
+  // animation: 1.8s appear-alert 1;
+  // animation-fill-mode: forwards;
+}
+
+.alert-icon{
+  display: inline-block;
+  vertical-align: top;
+}
+
+.alert-msg{
+  display: inline-block;
+  width: 90%;
+  margin-left: 2%;
+  padding: 0.8%;
+}
+
+@keyframes appear-alert {
+  0%{
+		opacity: 0;
+    right: -50%;
+	}
+	100%{
+		opacity: 1;
+    right: 0.5%;
+	}
+}
+
+@keyframes appear-alert-hide {
+  0%{
+		opacity: 1;
+    right: 0.5%;
+	}
+	100%{
+		opacity: 0;
+    right: -50%;
+	}
+}
