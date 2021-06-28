@@ -1,4 +1,4 @@
-import React, { Fragment, useLayoutEffect } from 'react';
+import React, { Fragment, useLayoutEffect, useState } from 'react';
 import Portafolio from './Portafolio';
 import SectionTitle from './SectionTitle';
 import Contact from './Contact';
@@ -6,6 +6,7 @@ import Slider from './Slider';
 import SliderMult from './SliderMult';
 import { useDispatch , useSelector } from 'react-redux';
 import homeAction from '../redux/reducer/home.reducer';
+import productsAction from '../redux/reducer/products.reducer';
 
 const Home = (props) => {
 
@@ -20,9 +21,11 @@ const Home = (props) => {
   const amount = 10;
 
   useLayoutEffect( ()=>{
+    dispatch(homeAction.defaultPath());
     dispatch(homeAction.getCategories());
     dispatch(homeAction.getDiscountsClothes());
     dispatch(homeAction.getLastestCollection(amount));
+    dispatch(productsAction.getAddedProduct());
   },[dispatch]);
 
   return(

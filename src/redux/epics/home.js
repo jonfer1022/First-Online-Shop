@@ -6,6 +6,27 @@ import { Observable } from "rxjs-compat"
 import axios from 'axios';
 import routes from '../../config/routes';
 
+axios.defaults.withCredentials = true;
+
+export const defaultPath = ($action) =>
+  $action.pipe(
+    ofType("DEFAULT_PATH"),
+    flatMap(() =>{
+      return Observable.from(axios.get(routes.endpoints.defaultPath.url))
+      .pipe(
+      flatMap((res)=>{
+        return Observable.concat(
+          Observable.of(homeAction.defaultPathSuccess(res.data))
+        );
+      }),
+      catchError((e)=>{
+        console.log(e)
+        return throwError(e)
+      })
+    )
+  })
+)
+
 export const getCategories = ($action) =>
   $action.pipe(
     ofType("GET_CATEGORIES"),
@@ -64,6 +85,7 @@ export const getLastestCollection = ($action) =>
 )
 
 export default combineEpics(
+  defaultPath,
   getCategories,
   getDiscountsClothes,
   getLastestCollection

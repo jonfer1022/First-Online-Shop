@@ -2,7 +2,7 @@ import { combineEpics, ofType } from "redux-observable";
 import productsAction from '../reducer/products.reducer';
 import { catchError, flatMap, mergeMap } from 'rxjs/operators';
 import { throwError } from 'rxjs';
-import { Observable } from "rxjs-compat"
+import { Observable } from "rxjs-compat";
 import axios from 'axios';
 import routes from '../../config/routes';
 import { push } from "connected-react-router";
@@ -18,7 +18,6 @@ export const getAllProducts = ($action) =>
         ))
       .pipe(
       flatMap((res)=>{
-        // console.log("res.data",res.data)
         return Observable.concat(
           Observable.of(productsAction.getAllProductsSuccess(res.data))
         );
@@ -74,9 +73,154 @@ export const saveCategoryAndGender = ($action) =>
   })
 )
 
+export const addProductById = ($action) =>
+  $action.pipe(
+    ofType("ADD_PRODUCT_BY_ID"),
+    flatMap(({product_id, amount, size}) =>{
+      return Observable.from(axios.post(
+        `${endpoint.addProductById.url}`,{ product_id, amount, size }
+        ))
+      .pipe(
+      flatMap((res)=>{
+        return Observable.of(
+          productsAction.addProductByIdSuccess(res.data),
+          startGetAddedProduct()
+        );
+      }),
+      catchError((e)=>{
+        console.log(e)
+        return throwError(e)
+      })
+    )
+  })
+)
+
+export const startGetAddedProduct = () => ({
+  type: "GET_ADDED_PRODUCT"
+})
+
+export const getAddedProduct = ($action) =>
+  $action.pipe(
+    ofType("GET_ADDED_PRODUCT"),
+    flatMap(() =>{
+      return Observable.from(axios.get(`${endpoint.getAddedProduct.url}`))
+      .pipe(
+      flatMap((res)=>{
+        return Observable.concat(
+          Observable.of(productsAction.getAddedProductSuccess(res.data))
+        );
+      }),
+      catchError((e)=>{
+        console.log(e)
+        return throwError(e)
+      })
+    )
+  })
+)
+
+export const startGetDetailAddedProducts = () => ({
+  type: "GET_DETAIL_ADDED_PRODUCTS"
+})
+
+export const getDetailAddedProducts = ($action) =>
+  $action.pipe(
+    ofType("GET_DETAIL_ADDED_PRODUCTS"),
+    flatMap(() =>{
+      return Observable.from(axios.get(`${endpoint.getDetailAddedProducts.url}`))
+      .pipe(
+      flatMap((res)=>{
+        return Observable.concat(
+          Observable.of(productsAction.getDetailAddedProductsSuccess(res.data))
+        );
+      }),
+      catchError((e)=>{
+        console.log(e)
+        return throwError(e)
+      })
+    )
+  })
+)
+
+export const submitDeleteSizeProduct = ($action) =>
+  $action.pipe(
+    ofType("SUBMIT_DELETE_SIZE_PRODUCT"),
+    flatMap(({product_id, size}) =>{
+      return Observable.from(axios.delete(
+        `${endpoint.submitDeleteSizeProduct.url}?product_id=${product_id}&size=${size}`
+        ))
+      .pipe(
+      flatMap((res)=>{
+        return Observable.of(
+          productsAction.deleteSizeProductSuccess(res.data),
+          startGetDetailAddedProducts(),
+          startGetAddedProduct()
+        );
+      }),
+      catchError((e)=>{
+        console.log(e)
+        return throwError(e)
+      })
+    )
+  })
+)
+
+export const submitUpdateSizeProduct = ($action) =>
+  $action.pipe(
+    ofType("SUBMIT_UPDATE_SIZE_PRODUCT"),
+    flatMap(({product_id, size, amount}) =>{
+      return Observable.from(axios.put(
+        `${endpoint.submitUpdateSizeProduct.url}`,
+        { product_id, size, amount }
+        ))
+      .pipe(
+      flatMap((res)=>{
+        return Observable.of(
+          productsAction.deleteSizeProductSuccess(res.data),
+          startGetDetailAddedProducts(),
+          startGetAddedProduct()
+        );
+      }),
+      catchError((e)=>{
+        console.log(e)
+        return throwError(e)
+      })
+    )
+  })
+)
+
+export const submitUpdateAllProduct = ($action) =>
+  $action.pipe(
+    ofType("SUBMIT_UPDATE_ALL_PRODUCT"),
+    flatMap(({ newProducts }) =>{
+      return Observable.from(axios.put(
+        `${endpoint.submitUpdateAllProduct.url}`,
+        { newProducts }
+        ))
+      .pipe(
+      flatMap((res)=>{
+        return Observable.of(
+          productsAction.deleteSizeProductSuccess(res.data),
+          startGetDetailAddedProducts(),
+          startGetAddedProduct()
+        );
+      }),
+      catchError((e)=>{
+        console.log(e)
+        return throwError(e)
+      })
+    )
+  })
+)
+
 export default combineEpics(
   getAllProducts,
   getProductById,
   saveProductId,
-  saveCategoryAndGender
+  saveCategoryAndGender,
+  addProductById,
+  getAddedProduct,
+  getDetailAddedProducts,
+  submitDeleteSizeProduct,
+  submitUpdateSizeProduct,
+  submitUpdateAllProduct
 );

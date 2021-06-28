@@ -6,6 +6,7 @@ import { ConnectedRouter } from 'connected-react-router';
 import Home from './Home';
 import Products from './Products';
 import ClothingDetail from './ClothingDetail';
+import ViewShoppingCar from './ViewShoppingCar';
 import Footer from './Footer';
 import { Layout } from './Layout';
 import Header from './Header';
@@ -14,7 +15,7 @@ import './styles/body.scss';
 
 function App() {
   
-  const [side,setSide] = useState(null)
+  const [side,setSide] = useState(null);
   const store = generateStore()
   const lugar = data => setSide(data);
 
@@ -23,7 +24,7 @@ function App() {
       <Provider store = { store }>
         <ConnectedRouter history={history}>
           <header>
-            <NavBar side={side}/>
+            <NavBar side={side} />
             {side === "Home" ? <Header id="header"/> : null}
           </header>
           <body>
@@ -32,7 +33,8 @@ function App() {
                 <Switch>
                   <Route exact path ="/home" children={<Home action={lugar}/>} />
                   <Route path ='/products' children={<Products action={lugar} />}/>
-                  <Route path ='/clothing-detail' children={<ClothingDetail action={lugar} />}/>              
+                  <Route path ='/clothing-detail' children={<ClothingDetail action={lugar} />}/>
+                  <Route path ='/view-shopping-car' children={<ViewShoppingCar action={lugar} />}/>
                   <Redirect from="/" to="/home" />
                   {/* <Route component={NotFound}/> */}
                 </Switch>

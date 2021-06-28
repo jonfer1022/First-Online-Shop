@@ -2,6 +2,8 @@ import { createActions, createReducer } from "reduxsauce";
 
 //Creación de acciones types y creators
 export const { Types, Creators } = createActions({
+  defaultPath: [],
+  defaultPathSuccess: ["session"],
   getCategories: [],
   getCategoriesSuccess: ["categories"],
   getDiscountsClothes: [],
@@ -20,9 +22,13 @@ export const INITIAL_STATE = {
   lastestCollection: []
 }
 
-// const getDataInitial = (state = INITIAL_STATE) => ({
-//   ...state
-// })
+const defaultPath = (state = INITIAL_STATE) => ({
+  ...state
+})
+
+const defaultPathSuccess = (state = INITIAL_STATE, data) => ({
+  ...state, data
+})
 
 const getCategories = (state = INITIAL_STATE) => ({
   ...state, categories: []
@@ -49,6 +55,8 @@ const getLastestCollectionSuccess = (state = INITIAL_STATE, data) => ({
 })
 
 export const reducer = createReducer(INITIAL_STATE,{
+  [Types.DEFAULT_PATH]: defaultPath,
+  [Types.DEFAULT_PATH_SUCCESS]: defaultPathSuccess,
   [Types.GET_CATEGORIES]: getCategories,
   [Types.GET_CATEGORIES_SUCCESS]: getCategoriesSuccess,
   [Types.GET_DISCOUNTS_CLOTHES]: getDiscountsClothes,
