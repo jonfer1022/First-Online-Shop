@@ -14,7 +14,8 @@ export const getAllProducts = ($action) =>
     ofType("GET_ALL_PRODUCTS"),
     flatMap(({gender, category, sortBy, size, priceMin, priceMax}) =>{
       return Observable.from(axios.get(
-        `${endpoint.getAllProducts.url}?gender=${gender}&category=${category}&sortBy=${sortBy}&size=${size}&priceMin=${priceMin}&priceMax=${priceMax}`
+        `${endpoint.getAllProducts.url}?gender=${gender}&category=${category}&sortBy=${sortBy}&size=${size}&priceMin=${priceMin}&priceMax=${priceMax}`,
+        { withCredentials: true }
         ))
       .pipe(
       flatMap((res)=>{
@@ -35,7 +36,7 @@ export const getProductById = ($action) =>
     ofType("GET_PRODUCT_BY_ID"),
     flatMap(({product_id}) =>{
       return Observable.from(
-        axios.get(`${endpoint.getProductById.url}?product_id=${product_id}`)
+        axios.get(`${endpoint.getProductById.url}?product_id=${product_id}`, { withCredentials: true })
         )
       .pipe(
       flatMap((res)=>{

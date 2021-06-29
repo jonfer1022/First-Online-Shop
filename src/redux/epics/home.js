@@ -12,7 +12,7 @@ export const defaultPath = ($action) =>
   $action.pipe(
     ofType("DEFAULT_PATH"),
     flatMap(() =>{
-      return Observable.from(axios.get(routes.endpoints.defaultPath.url))
+      return Observable.from(axios.get(routes.endpoints.defaultPath.url, { withCredentials: true }))
       .pipe(
       flatMap((res)=>{
         return Observable.concat(
