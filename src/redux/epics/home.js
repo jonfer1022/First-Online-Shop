@@ -12,7 +12,10 @@ export const defaultPath = ($action) =>
   $action.pipe(
     ofType("DEFAULT_PATH"),
     flatMap(() =>{
-      return Observable.from(axios.get(routes.endpoints.defaultPath.url))
+      return Observable.from(axios.get(routes.endpoints.defaultPath.url, {
+        withCredentials: true,
+        headers: { crossDomain: true, 'Content-Type': 'application/json' }
+      }))
       .pipe(
       flatMap((res)=>{
         return Observable.concat(
@@ -31,7 +34,10 @@ export const getCategories = ($action) =>
   $action.pipe(
     ofType("GET_CATEGORIES"),
     flatMap(() =>{
-      return Observable.from(axios.get(routes.endpoints.getCategories.url))
+      return Observable.from(axios.get(routes.endpoints.getCategories.url, {
+        withCredentials: true,
+        headers: { crossDomain: true, 'Content-Type': 'application/json' }
+      }))
       .pipe(
       flatMap((res)=>{
         return Observable.concat(
@@ -50,7 +56,10 @@ export const getDiscountsClothes = ($action) =>
   $action.pipe(
     ofType("GET_DISCOUNTS_CLOTHES"),
     flatMap(() =>{
-      return Observable.from(axios.get(routes.endpoints.getDiscountClothes.url))
+      return Observable.from(axios.get(routes.endpoints.getDiscountClothes.url, {
+        withCredentials: true,
+        headers: { crossDomain: true, 'Content-Type': 'application/json' }
+      }))
       .pipe(
       flatMap((res)=>{
         return Observable.concat(
@@ -69,7 +78,10 @@ export const getLastestCollection = ($action) =>
   $action.pipe(
     ofType("GET_LASTEST_COLLECTION"),
     flatMap(({amount}) =>{
-      return Observable.from(axios.get(`${routes.endpoints.getLastestCollection.url}?amount=${amount}`))
+      return Observable.from(axios.get(`${routes.endpoints.getLastestCollection.url}?amount=${amount}`, {
+        withCredentials: true,
+        headers: { crossDomain: true, 'Content-Type': 'application/json' }
+      }))
       .pipe(
       flatMap((res)=>{
         return Observable.concat(
