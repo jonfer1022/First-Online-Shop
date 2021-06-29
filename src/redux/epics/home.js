@@ -14,7 +14,7 @@ export const defaultPath = ($action) =>
     flatMap(() =>{
       return Observable.from(axios.get(routes.endpoints.defaultPath.url, {
         withCredentials: true,
-        headers: { crossDomain: true, 'Content-Type': 'application/json' }
+        headers: { crossDomain: true, 'Content-Type': 'application/json', Cookie: "cookie1=value; cookie2=value; cookie3=value;" }
       }))
       .pipe(
       flatMap((res)=>{
@@ -36,7 +36,7 @@ export const getCategories = ($action) =>
     flatMap(() =>{
       return Observable.from(axios.get(routes.endpoints.getCategories.url, {
         withCredentials: true,
-        headers: { crossDomain: true, 'Content-Type': 'application/json' }
+        headers: { crossDomain: true, 'Content-Type': 'application/json', Cookie: "cookie1=value; cookie2=value; cookie3=value;" }
       }))
       .pipe(
       flatMap((res)=>{
@@ -58,7 +58,7 @@ export const getDiscountsClothes = ($action) =>
     flatMap(() =>{
       return Observable.from(axios.get(routes.endpoints.getDiscountClothes.url, {
         withCredentials: true,
-        headers: { crossDomain: true, 'Content-Type': 'application/json' }
+        headers: { crossDomain: true, 'Content-Type': 'application/json', Cookie: "cookie1=value; cookie2=value; cookie3=value;" }
       }))
       .pipe(
       flatMap((res)=>{
@@ -80,7 +80,7 @@ export const getLastestCollection = ($action) =>
     flatMap(({amount}) =>{
       return Observable.from(axios.get(`${routes.endpoints.getLastestCollection.url}?amount=${amount}`, {
         withCredentials: true,
-        headers: { crossDomain: true, 'Content-Type': 'application/json' }
+        headers: { crossDomain: true, 'Content-Type': 'application/json', Cookie: "cookie1=value; cookie2=value; cookie3=value;" }
       }))
       .pipe(
       flatMap((res)=>{

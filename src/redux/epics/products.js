@@ -85,7 +85,7 @@ export const addProductById = ($action) =>
     ofType("ADD_PRODUCT_BY_ID"),
     flatMap(({product_id, amount, size}) =>{
       return Observable.from(axios.post(
-        `${endpoint.addProductById.url}`,{ product_id, amount, size, 
+        `${endpoint.addProductById.url}`,{ product_id, amount, size } , { 
           withCredentials: true,
           headers: { crossDomain: true, 'Content-Type': 'application/json' } }
         ))
@@ -138,7 +138,10 @@ export const getDetailAddedProducts = ($action) =>
   $action.pipe(
     ofType("GET_DETAIL_ADDED_PRODUCTS"),
     flatMap(() =>{
-      return Observable.from(axios.get(`${endpoint.getDetailAddedProducts.url}`))
+      return Observable.from(axios.get(`${endpoint.getDetailAddedProducts.url}`, {
+        withCredentials: true,
+        headers: { crossDomain: true, 'Content-Type': 'application/json' }
+      }))
       .pipe(
       flatMap((res)=>{
         return Observable.concat(
@@ -158,7 +161,10 @@ export const submitDeleteSizeProduct = ($action) =>
     ofType("SUBMIT_DELETE_SIZE_PRODUCT"),
     flatMap(({product_id, size}) =>{
       return Observable.from(axios.delete(
-        `${endpoint.submitDeleteSizeProduct.url}?product_id=${product_id}&size=${size}`
+        `${endpoint.submitDeleteSizeProduct.url}?product_id=${product_id}&size=${size}`,{},{
+          withCredentials: true,
+          headers: { crossDomain: true, 'Content-Type': 'application/json' }
+        }
         ))
       .pipe(
       flatMap((res)=>{
